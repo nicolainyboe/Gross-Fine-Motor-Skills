@@ -11,6 +11,8 @@ var maxY = garden.clientHeight - ball.clientHeight;
 // var minX = garden.style.left + ball.clientWidth;
 // var minY = garden.style.top + ball.clientHeight;
 
+let boksenDuRammer;
+
 function handleOrientation(event) {
   var x = event.gamma; // In degree in the range [-90,90]
   var y = event.beta; // In degree in the range [-180,180]
@@ -40,13 +42,15 @@ function handleOrientation(event) {
   let topMeasure = parseInt(ball.style.top, 10);
   let leftMeasure = parseInt(ball.style.left, 10);
   //VEST
+
   if (
     topMeasure >= 350 &&
     topMeasure <= 460 &&
     leftMeasure >= 40 &&
     leftMeasure <= 230
   ) {
-    boxvest.style.backgroundColor = "green";
+    boksenDuRammer = 1;
+    ifRightFunctionEvent(1);
   } else {
     boxvest.style.backgroundColor = "white";
   }
@@ -57,7 +61,8 @@ function handleOrientation(event) {
     leftMeasure >= 410 &&
     leftMeasure <= 600
   ) {
-    boxsyd.style.backgroundColor = "green";
+    boksenDuRammer = 4;
+    ifRightFunctionEvent(4);
   } else {
     boxsyd.style.backgroundColor = "white";
   }
@@ -68,7 +73,8 @@ function handleOrientation(event) {
     leftMeasure >= 760 &&
     leftMeasure <= 950
   ) {
-    boxoest.style.backgroundColor = "green";
+    boksenDuRammer = 3;
+    ifRightFunctionEvent(3);
   } else {
     boxoest.style.backgroundColor = "white";
   }
@@ -79,10 +85,35 @@ function handleOrientation(event) {
     leftMeasure >= 410 &&
     leftMeasure <= 600
   ) {
-    boxnord.style.backgroundColor = "green";
+    boksenDuRammer = 2;
+    ifRightFunctionEvent(2);
   } else {
     boxnord.style.backgroundColor = "white";
   }
 }
 
 window.addEventListener("deviceorientation", handleOrientation);
+
+let counter = 0;
+let order = [2, 4, 2, 1, 2, 4, 1, 3];
+function ifRightFunctionEvent(e) {
+  console.log(counter);
+  for (i = 0; i < order.length; i++) {
+    if (e == order[counter]) {
+      console.log("jeg rammer rig");
+      counter++;
+      if (boksenDuRammer == 1) {
+        console.log("jeg ramte rigtigt");
+        boxvest.style.backgroundColor = "green";
+      } else if (boksenDuRammer == 2) {
+        boxnord.style.backgroundColor = "green";
+      } else if (boksenDuRammer == 3) {
+        boxoest.style.backgroundColor = "green";
+      } else if (boksenDuRammer == 4) {
+        boxsyd.style.backgroundColor = "green";
+      }
+      //Hvis du ikke rammer rigtig skal den starte forfra, og eventuelt resette counter til 0
+      console.log("boksen du rammer blinker grøn");
+    }
+  }
+}
