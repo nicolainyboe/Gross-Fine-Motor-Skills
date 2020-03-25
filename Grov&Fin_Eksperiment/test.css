@@ -1,4 +1,4 @@
-.garden {
+#garden {
   position: relative;
   width: 1000px;
   height: 800px;
@@ -6,7 +6,7 @@
   border-radius: 10px;
 }
 
-.ball {
+#ball {
   position: absolute;
   top: 400px;
   left: 500px;
@@ -14,9 +14,10 @@
   height: 20px;
   background: #ffc133;
   border-radius: 100%;
+  z-index: 1;
 }
 
-.boxnord {
+#boxnord {
   position: absolute;
   border-radius: 25px;
   border: 6px solid #338dff;
@@ -26,7 +27,7 @@
   left: 410px;
   top: 40px;
 }
-.boxoest {
+#boxoest {
   position: absolute;
   border-radius: 25px;
   border: 6px solid #338dff;
@@ -36,7 +37,7 @@
   left: 760px;
   top: 350px;
 }
-.boxsyd {
+#boxsyd {
   position: absolute;
   border-radius: 25px;
   border: 6px solid #338dff;
@@ -46,7 +47,7 @@
   left: 410px;
   top: 640px;
 }
-.boxvest {
+#boxvest {
   position: absolute;
   border-radius: 25px;
   border: 6px solid #338dff;
@@ -55,4 +56,5 @@
   height: 70px;
   left: 40px;
   top: 350px;
+  background-color: white;
 }
