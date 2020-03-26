@@ -113,6 +113,7 @@ function ifRightFunctionEvent(e) {
         boxsyd.style.backgroundColor = "green";
       }
       //Hvis du ikke rammer rigtig skal den starte forfra, og eventuelt resette counter til 0
+      // Og hvis array order.length er større en længden = færdig eller order[counter] er større en indholdet så er du færdig
       console.log("boksen du rammer blinker grøn");
     }
   }
