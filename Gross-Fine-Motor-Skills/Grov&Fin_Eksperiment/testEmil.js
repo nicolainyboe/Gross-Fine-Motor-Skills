@@ -1,4 +1,4 @@
-//var ball = document.getElementById("ball");
+var ball = document.getElementById("ball");
 var boxvest = document.getElementById("boxvest");
 var boxnord = document.getElementById("boxnord");
 var boxoest = document.getElementById("boxoest");
@@ -11,19 +11,37 @@ var maxY = garden.clientHeight - ball.clientHeight;
 // var minX = garden.style.left + ball.clientWidth;
 // var minY = garden.style.top + ball.clientHeight;
 
-let boksenDuRammer;
 
-//Spørger om lov til at bruge iphone orientation
-
-//window.onload = startDeviceOrientation();
-function startDeviceOrientation() {
-  console.log("hey");
-
+/*Fra AskForDeviceMotion*/
+function startDeviceMotion() {
   if (typeof DeviceOrientationEvent.requestPermission === "function") {
     DeviceOrientationEvent.requestPermission()
       .then(permissionState => {
         if (permissionState === "granted") {
-          console.log("Vi må bruge iphone");
+          window.addEventListener("devicemotion", handleDeviceMotion, false);
+        }
+      })
+      .catch(console.log("Vi har ikke fået adgang til deviceorientation"));
+  }
+}
+
+function handleDeviceMotion() {
+  let val = event.acceleration.x;
+  val = Math.floor(val);
+  console.log(val);
+}
+
+/*-------------------------------------/*
+
+
+/* Fra AskForDeviceOrientation */
+//window.onload = startDeviceOrientation();
+
+function startDeviceOrientation() {
+  if (typeof DeviceOrientationEvent.requestPermission === "function") {
+    DeviceOrientationEvent.requestPermission()
+      .then(permissionState => {
+        if (permissionState === "granted") {
           window.addEventListener(
             "deviceorientation",
             handleOrientation,
@@ -36,12 +54,10 @@ function startDeviceOrientation() {
 }
 
 function handleOrientation(event) {
-  //Værdier vi skal sende over MQTT?
-
   var x = event.gamma; // In degree in the range [-90,90]
-  var y = -event.beta; // In degree in the range [-180,180]
+  var y = event.beta; // In degree in the range [-180,180]
 
-  //console.log(x);
+  sendMQTT(y)
 
   output.innerHTML = "beta : " + x + "\n";
   output.innerHTML += "gamma: " + y + "\n";
@@ -59,56 +75,24 @@ function handleOrientation(event) {
   // x and y to [0,180]
   x += 90;
   y += 90;
-  var data = { sendX: x, sendY: y };
-  sendMQTT(data);
-
-  //console.log("er du her");
 
   // 10 is half the size of the ball
   // It center the positioning point to the center of the ball
-  //ball.style.top = (maxY * y) / 180 - 10 + "px";
-  //ball.style.left = (maxX * x) / 180 - 10 + "px";
+  ball.style.top = (maxY * y) / 180 - 10 + "px";
+  ball.style.left = (maxX * x) / 180 - 10 + "px";
 
   let topMeasure = parseInt(ball.style.top, 10);
-  console.log(topMeasure);
   let leftMeasure = parseInt(ball.style.left, 10);
   //VEST
-
   if (
     topMeasure >= 350 &&
     topMeasure <= 460 &&
     leftMeasure >= 40 &&
     leftMeasure <= 230
   ) {
-    boksenDuRammer = 1;
-    ifRightFunctionEvent(1);
+    boxvest.style.backgroundColor = "green";
   } else {
     boxvest.style.backgroundColor = "white";
-  }
-
-  //NORD width: 150px;height: 70px;left: 410px;top: 40px;
-  if (
-    topMeasure >= 40 &&
-    topMeasure <= 150 &&
-    leftMeasure >= 410 &&
-    leftMeasure <= 600
-  ) {
-    boksenDuRammer = 2;
-    ifRightFunctionEvent(2);
-  } else {
-    boxnord.style.backgroundColor = "white";
-  }
-  // OEST width: 150px;height: 70px;left: 760px;top: 350px;
-  if (
-    topMeasure >= 350 &&
-    topMeasure <= 460 &&
-    leftMeasure >= 760 &&
-    leftMeasure <= 950
-  ) {
-    boksenDuRammer = 3;
-    ifRightFunctionEvent(3);
-  } else {
-    boxoest.style.backgroundColor = "white";
   }
   //SYD left: 410px; top: 640px; height: 70px; width:150px;
   if (
@@ -117,39 +101,32 @@ function handleOrientation(event) {
     leftMeasure >= 410 &&
     leftMeasure <= 600
   ) {
-    boksenDuRammer = 4;
-    ifRightFunctionEvent(4);
+    boxsyd.style.backgroundColor = "green";
   } else {
     boxsyd.style.backgroundColor = "white";
+  }
+  // OEST width: 150px;height: 70px;left: 760px;top: 350px;
+  if (
+    topMeasure >= 350 &&
+    topMeasure <= 460 &&
+    leftMeasure >= 760 &&
+    leftMeasure <= 950
+  ) {
+    boxoest.style.backgroundColor = "green";
+  } else {
+    boxoest.style.backgroundColor = "white";
+  }
+  //NORD width: 150px;height: 70px;left: 410px;top: 40px;
+  if (
+    topMeasure >= 40 &&
+    topMeasure <= 150 &&
+    leftMeasure >= 410 &&
+    leftMeasure <= 600
+  ) {
+    boxnord.style.backgroundColor = "green";
+  } else {
+    boxnord.style.backgroundColor = "white";
   }
 }
 
 window.addEventListener("deviceorientation", handleOrientation);
-
-// let counter = 0;
-// let order = [2, 4, 2, 1, 2, 4, 1, 3];
-// function ifRightFunctionEvent(e) {
-//   console.log(counter);
-//   for (i = 0; i < order.length; i++) {
-//     if (e == order[counter]) {
-//       console.log("jeg rammer rig");
-//       counter++;
-//       if (boksenDuRammer == 1) {
-//         console.log("jeg ramte rigtigt");
-//         boxvest.style.backgroundColor = "green";
-//       } else if (boksenDuRammer == 2) {
-//         boxnord.style.backgroundColor = "green";
-//       } else if (boksenDuRammer == 3) {
-//         boxoest.style.backgroundColor = "green";
-//       } else if (boksenDuRammer == 4) {
-//         boxsyd.style.backgroundColor = "green";
-//       }
-//       //Hvis du ikke rammer rigtig skal den starte forfra, og eventuelt resette counter til 0
-//       // Og hvis array order.length er større en længden = færdig eller order[counter] er større en indholdet så er du færdig
-//       console.log("boksen du rammer blinker grøn");
-//     } else {
-//       //counter = 0;
-//       //boxsyd.style.backgroundColor = "red";
-//     }
-//   }
-// }

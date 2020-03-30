@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="test.css" />
   </head>
   <body>
+    <button onclick="startDeviceOrientation()" id="startbutton">START</button>
     <div id="garden">
       <div id="ball"></div>
       <div id="boxvest"></div>
@@ -17,9 +18,8 @@
 
     <pre id="output"></pre>
   </body>
+
+  <script src="mqttws31.js"></script>
+  <script src="moja_mqtt2020.js"></script>
   <script src="test.js"></script>
-  <script>
-    let nord = document.getElementsByClassName("boxnord");
-    console.log(nord);
-  </script>
 </html>
