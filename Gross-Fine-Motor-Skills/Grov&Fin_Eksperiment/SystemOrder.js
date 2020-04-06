@@ -8,21 +8,6 @@ let boksenDuRammer = 3;
 
 let order = [3, 2, 4, 1, 2, 4, 1, 3];
 //version 1
-function checkOrder() {
-  let counter = 0;
-  console.log(boksenDuRammer);
-  for (i = 0; i < order.length; i++) {
-    if (boksenDuRammer != order[counter]) {
-      break;
-      //box blinker rødt
-    }
-    if ((boksenDuRammer = order[counter])) {
-      counter++;
-      console.log(counter);
-      //box blinker grønt
-    }
-  }
-}
 
 window.addEventListener("event", checkOrder);
 //Version 2

@@ -28,7 +28,7 @@ function onConnect() {
 }
 
 function sendMQTT(data) {
-  console.log("sending");
+  //console.log("sending");
   //console.log("message" + message);
   let mOBJ = { deviceID: myID, content: data };
 
@@ -58,8 +58,9 @@ function receiveMessage(message) {
   ball.style.top = (maxY * receivedMessage.sendY) / 180 - 10 + "px";
 
   let topMeasure = parseInt(ball.style.top, 10);
-  console.log(topMeasure);
+  // console.log(topMeasure);
   let leftMeasure = parseInt(ball.style.left, 10);
+
   //VEST
 
   if (
@@ -114,12 +115,14 @@ function receiveMessage(message) {
 
 let counter = 0;
 let order = [2, 4, 2, 1, 2, 4, 1, 3];
+
 function ifRightFunctionEvent(e) {
-  console.log(counter);
+  //console.log(counter);
   for (i = 0; i < order.length; i++) {
     if (e == order[counter]) {
       console.log("jeg rammer rig");
       counter++;
+
       if (boksenDuRammer == 1) {
         console.log("jeg ramte rigtigt");
         boxvest.style.backgroundColor = "green";
@@ -132,7 +135,6 @@ function ifRightFunctionEvent(e) {
       }
       //Hvis du ikke rammer rigtig skal den starte forfra, og eventuelt resette counter til 0
       // Og hvis array order.length er større en længden = færdig eller order[counter] er større en indholdet så er du færdig
-      console.log("boksen du rammer blinker grøn");
     } else {
       //counter = 0;
       //boxsyd.style.backgroundColor = "red";
