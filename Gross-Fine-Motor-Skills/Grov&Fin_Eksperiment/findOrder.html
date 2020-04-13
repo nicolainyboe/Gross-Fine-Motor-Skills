@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="test.css" />
+  </head>
+  <body>
+    <!-- <button onclick="startDeviceOrientation()" id="startbutton">START</button> -->
+    <span>Find den rigtige rækkefølge!</span> </br>
+    <span> Sequence = 2, 4, 2, 3, 1, 4, 1, 2</span>
+    <div id="garden">
+      <div id="frame">
+        <div id="ball"></div>
+        <div id="boxvest">
+          <span>1</span>
+        </div>
+        <div id="boxnord">
+          <span>2</span>
+        </div>
+        <div id="boxoest">
+          <span>3</span>
+        </div>
+        <div id="boxsyd">
+          <span>4</span>
+        </div>
+        <span id="collision"></span></br>
+        
+      </div>
+    </div>
+
+    <pre id="output"></pre>
+    <a href="order.html">Gå til næste prøve</a>
+  </body>
+
+  <script src="mqttws31.js"></script>
+  <script src="moja_mqtt2020.js"></script>
+  <script src="Orientation.js"></script>
+</html>
