@@ -16,7 +16,7 @@ var maxY = garden.clientHeight - ball.clientHeight;
 
 //window.onload = startDeviceOrientation();
 function startDeviceOrientation() {
-  console.log("hey");
+  console.log("StartDeviceOrientation");
 
   if (typeof DeviceOrientationEvent.requestPermission === "function") {
     DeviceOrientationEvent.requestPermission()

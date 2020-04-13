@@ -175,7 +175,7 @@ document.getElementById("collision").innerHTML =
 function ifRightSequence() {
   if (count >= sequence.length) {
     console.log("det var hvad du troede var rækkefølgen");
-    window.alert("Det var hvad du troede var rækkefølgen " + order);
+    window.alert("Du mener rækkefølgen er; " + order);
   }
 }
 
@@ -185,22 +185,22 @@ var counterFunction = function () {
   if (boxnum == 1) {
     document.getElementById("collision").innerHTML =
       "Counter = " + count + " " + "boxnum = " + boxnum;
-    document.getElementById("boxvest").style.backgroundColor = "blue";
+    document.getElementById("boxvest").style.backgroundColor = "yellow";
     order.push(1);
   } else if (boxnum == 2) {
     document.getElementById("collision").innerHTML =
       "Counter = " + count + " " + "boxnum = " + boxnum;
-    document.getElementById("boxnord").style.backgroundColor = "blue";
+    document.getElementById("boxnord").style.backgroundColor = "yellow";
     order.push(2);
   } else if (boxnum == 3) {
     document.getElementById("collision").innerHTML =
       "Counter = " + count + " " + "boxnum = " + boxnum;
-    document.getElementById("boxoest").style.backgroundColor = "blue";
+    document.getElementById("boxoest").style.backgroundColor = "yellow";
     order.push(3);
   } else if (boxnum == 4) {
     document.getElementById("collision").innerHTML =
       "Counter = " + count + " " + "boxnum = " + boxnum;
-    document.getElementById("boxsyd").style.backgroundColor = "blue";
+    document.getElementById("boxsyd").style.backgroundColor = "yellow";
     order.push(4);
   }
   console.log(order);

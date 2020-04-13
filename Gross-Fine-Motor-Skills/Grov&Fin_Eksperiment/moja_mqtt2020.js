@@ -169,7 +169,7 @@ function receiveMessage(message) {
   // }
 }
 let count = -1;
-let sequence = [2, 4, 2, 3, 1, 2, 1];
+let sequence = [2, 4, 2, 3, 1, 4, 1, 2];
 let boxnum;
 
 document.getElementById("collision").innerHTML =
@@ -196,6 +196,12 @@ function ifRightSequence(e) {
         document.getElementById("boxsyd").style.backgroundColor = "green";
       }
     }
+  }
+  if (count + 1 >= sequence.length) {
+    setTimeout(500);
+    window.location.href = "order.html";
+
+    console.log("nu vil jeg videre");
   }
 }
 
