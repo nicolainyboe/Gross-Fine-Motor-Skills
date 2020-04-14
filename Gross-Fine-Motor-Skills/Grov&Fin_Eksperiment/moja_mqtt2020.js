@@ -61,52 +61,56 @@ function receiveMessage(message) {
   // console.log(topMeasure);
   let leftMeasure = parseInt(ball.style.left, 10);
 
-  //VEST
+  //Farv boksene og check om brugeren finder den rigtige sekvens
 
   if (
-    topMeasure >= 350 &&
-    topMeasure <= 460 &&
-    leftMeasure >= 40 &&
-    leftMeasure <= 230
+    //VEST
+    topMeasure >= 250 &&
+    topMeasure <= 430 &&
+    leftMeasure >= 60 &&
+    leftMeasure <= 180
   ) {
     boxnum = 1;
     counterFunction();
     ifRightSequence(1);
     ifNotRightFunction(1);
   } else if (
+    //NORD
     topMeasure >= 40 &&
-    topMeasure <= 150 &&
-    leftMeasure >= 410 &&
-    leftMeasure <= 600
+    topMeasure <= 140 &&
+    leftMeasure >= 390 &&
+    leftMeasure <= 590
   ) {
     boxnum = 2;
     counterFunction();
     ifRightSequence(2);
     ifNotRightFunction(2);
   } else if (
-    topMeasure >= 640 &&
-    topMeasure <= 750 &&
-    leftMeasure >= 410 &&
-    leftMeasure <= 600
-  ) {
-    boxnum = 4;
-    counterFunction();
-    ifRightSequence(4);
-    ifNotRightFunction(4);
-  } else if (
-    topMeasure >= 350 &&
-    topMeasure <= 460 &&
-    leftMeasure >= 760 &&
-    leftMeasure <= 950
+    //ØST
+    topMeasure >= 250 &&
+    topMeasure <= 430 &&
+    leftMeasure >= 780 &&
+    leftMeasure <= 900
   ) {
     boxnum = 3;
     counterFunction();
     ifRightSequence(3);
     ifNotRightFunction(3);
+  } else if (
+    //SYD
+    topMeasure >= 550 &&
+    topMeasure <= 650 &&
+    leftMeasure >= 390 &&
+    leftMeasure <= 590
+  ) {
+    boxnum = 4;
+    counterFunction();
+    ifRightSequence(4);
+    ifNotRightFunction(4);
   } else {
     // document.getElementById("collision").innerHTML = null;
     document.getElementById("collision").innerHTML =
-      "Counter = " + count + " " + "boxnum = " + boxnum;
+      "Antal rigtige felter = " + (count + 1) + "/8";
     document.getElementById("boxvest").style.backgroundColor = "white";
     document.getElementById("boxnord").style.backgroundColor = "white";
     document.getElementById("boxoest").style.backgroundColor = "white";
@@ -169,33 +173,39 @@ function receiveMessage(message) {
   // }
 }
 let count = -1;
-let sequence = [2, 4, 2, 3, 1, 2, 1];
+let sequence = [2, 4, 2, 3, 1, 4, 1, 2];
 let boxnum;
 
 document.getElementById("collision").innerHTML =
-  "Counter = " + count + " " + "boxnum = " + boxnum;
+  "Antal rigtige felter = " + (count + 1) + "/8";
 function ifRightSequence(e) {
   for (i = 0; i < sequence.length; i++) {
     if (e == sequence[count]) {
       console.log("Yeps");
       if (boxnum == 1) {
         document.getElementById("collision").innerHTML =
-          "Counter = " + count + " " + "boxnum = " + boxnum;
+          "Antal rigtige felter = " + (count + 1) + "/8";
         document.getElementById("boxvest").style.backgroundColor = "green";
       } else if (boxnum == 2) {
         document.getElementById("collision").innerHTML =
-          "Counter = " + count + " " + "boxnum = " + boxnum;
+          "Antal rigtige felter = " + (count + 1) + "/8";
         document.getElementById("boxnord").style.backgroundColor = "green";
       } else if (boxnum == 3) {
         document.getElementById("collision").innerHTML =
-          "Counter = " + count + " " + "boxnum = " + boxnum;
+          "Antal rigtige felter = " + (count + 1) + "/8";
         document.getElementById("boxoest").style.backgroundColor = "green";
       } else if (boxnum == 4) {
         document.getElementById("collision").innerHTML =
-          "Counter = " + count + " " + "boxnum = " + boxnum;
+          "Antal rigtige felter = " + (count + 1) + "/8";
         document.getElementById("boxsyd").style.backgroundColor = "green";
       }
     }
+  }
+  if (count + 1 >= sequence.length) {
+    setTimeout(500);
+    window.location.href = "order.html";
+
+    console.log("nu vil jeg videre");
   }
 }
 
@@ -234,7 +244,7 @@ function ifNotRightFunction(e) {
   }
 }
 
-var counterFunction = function () {
+var counterFunction = function() {
   if (counterFunction.done) return;
   console.log("COUNTERFUNCTION");
   count++;
@@ -250,7 +260,7 @@ var rect1 = {
   y: parseInt(boxvest.getPropertyValue("top"), 10),
   width: parseInt(boxvest.getPropertyValue("width"), 10),
   height: parseInt(boxvest.getPropertyValue("height"), 10),
-  num: 1,
+  num: 1
 };
 
 var rect2 = {
@@ -258,7 +268,7 @@ var rect2 = {
   y: parseInt(boxnord.getPropertyValue("top"), 10),
   width: parseInt(boxnord.getPropertyValue("width"), 10),
   height: parseInt(boxnord.getPropertyValue("height"), 10),
-  num: 2,
+  num: 2
 };
 
 var rect3 = {
@@ -266,7 +276,7 @@ var rect3 = {
   y: parseInt(boxoest.getPropertyValue("top"), 10),
   width: parseInt(boxoest.getPropertyValue("width"), 10),
   height: parseInt(boxoest.getPropertyValue("height"), 10),
-  num: 3,
+  num: 3
 };
 
 var rect4 = {
@@ -274,7 +284,7 @@ var rect4 = {
   y: parseInt(boxsyd.getPropertyValue("top"), 10),
   width: parseInt(boxsyd.getPropertyValue("width"), 10),
   height: parseInt(boxsyd.getPropertyValue("height"), 10),
-  num: 4,
+  num: 4
 };
 
 function conLost() {

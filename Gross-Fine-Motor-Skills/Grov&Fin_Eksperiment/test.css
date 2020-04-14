@@ -1,73 +1,132 @@
 #garden {
   position: relative;
+  float: right;
   width: 1000px;
-  height: 800px;
-  border: 5px solid #ccc;
-  border-radius: 10px;
+  height: 750px;
+  border: 5px solid rgb(146, 196, 238);
+  margin: 10px;
+}
+
+#startbutton {
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+button {
+  font-size: 80px;
+  font-family: "Franklin Gothic Medium", "Arial Wide", Arial, sans-serif;
+  color: white;
+  background: blue;
+  padding: 10px;
+  border: 6px solid rgb(146, 196, 238);
+  margin-bottom: 20px;
+}
+
+#intro {
+  position: relative;
+  float: left;
+  margin: 10px;
+  font-family: "Franklin Gothic Medium", "Arial Wide", Arial, sans-serif;
+  width: 350px;
+}
+
+#intro h2 {
+  padding: 10px;
+}
+
+#collision {
+  margin: 20px;
+  padding-bottom: 50px;
+  font-size: 20px;
+  font-family: "Franklin Gothic Medium", "Arial Wide", Arial, sans-serif;
+  color: blue;
+}
+
+a {
+  margin-left: 20px;
+  font-size: 20px;
+}
+a:link {
+  color: black;
+  background-color: transparent;
+  font-family: "Franklin Gothic Medium", "Arial Wide", Arial, sans-serif;
+}
+a:visited {
+  color: black;
+  background-color: transparent;
+  font-family: "Franklin Gothic Medium", "Arial Wide", Arial, sans-serif;
+}
+a:hover {
+  color: blue;
+  background-color: transparent;
+  font-family: "Franklin Gothic Medium", "Arial Wide", Arial, sans-serif;
 }
 
 #ball {
   position: absolute;
-  top: 400px;
-  left: 500px;
-  width: 20px;
-  height: 20px;
-  background: #ffc133;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  background: blue;
   border-radius: 100%;
   z-index: 1;
 }
 
-#boxnord {
-  position: absolute;
-  border-radius: 25px;
-  border: 6px solid #338dff;
-  padding: 20px;
-  width: 150px;
-  height: 70px;
-  left: 410px;
-  top: 40px;
-}
-#boxoest {
-  position: absolute;
-  border-radius: 25px;
-  border: 6px solid #338dff;
-  padding: 20px;
-  width: 150px;
-  height: 70px;
-  left: 760px;
-  top: 350px;
-}
-#boxsyd {
-  position: absolute;
-  border-radius: 25px;
-  border: 6px solid #338dff;
-  padding: 20px;
-  width: 150px;
-  height: 70px;
-  left: 410px;
-  top: 640px;
-}
 #boxvest {
   position: absolute;
-  border-radius: 25px;
-  border: 6px solid #338dff;
+  border-radius: 3px;
+  border: 2px solid black;
   padding: 20px;
-  width: 150px;
-  height: 70px;
-  left: 40px;
-  top: 350px;
-  background-color: white;
+  width: 120px;
+  height: 180px;
+  left: 60px;
+  top: 250px;
 }
 
-#frame {
+#boxnord {
+  position: absolute;
+  border-radius: 3px;
+  border: 2px solid black;
+  padding: 20px;
+  width: 200px;
+  height: 100px;
+  left: 390px;
+  top: 40px;
+}
+
+#boxoest {
+  position: absolute;
+  border-radius: 3px;
+  border: 2px solid black;
+  padding: 20px;
+  width: 120px;
+  height: 180px;
+  left: 780px;
+  top: 250px;
+}
+
+#boxsyd {
+  position: absolute;
+  border-radius: 3px;
+  border: 2px solid black;
+  padding: 20px;
+  width: 200px;
+  height: 100px;
+  left: 390px;
+  top: 550px;
+}
+
+/* #frame {
   position: relative;
-  height: 800px;
+  height: 750px;
   width: 100%;
   margin: auto;
-  border: 1px solid green;
+  border: 5px solid white;
   text-align: center;
   line-height: 400px;
-}
+} */
 
 span {
   vertical-align: middle;

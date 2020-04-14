@@ -8,26 +8,29 @@
   </head>
   <body>
     <div id="intro">
-      <button onclick="startDeviceOrientation()" id="startbutton">START</button>
       <h2>
-        Velkommen til denne test! <br />Tryk START på din telefon for at komme
-        igang.
+        Gengiv rækkefølgen. <br />Se hvor godt du kan huske den med ét forsøg.
       </h2>
     </div>
 
     <div id="garden">
-      <div id="ball"></div>
-      <div id="boxvest"></div>
-      <div id="boxnord"></div>
-      <div id="boxoest"></div>
-      <div id="boxsyd"></div>
+      <div>
+        <div id="ball"></div>
+        <div id="boxvest"></div>
+        <div id="boxnord"></div>
+        <div id="boxoest"></div>
+        <div id="boxsyd"></div>
+      </div>
     </div>
 
     <pre id="output"></pre>
-    <a href="findOrder.html">Gå til testen</a>
+    <div id="collision"></div>
+    <br />
+    <a href="findOrder.html">Gå tilbage</a>
   </body>
 
   <script src="mqttws31.js"></script>
-  <script src="mqtttest.js"></script>
+  <script src="mqttorder.js"></script>
   <script src="Orientation.js"></script>
+  <script src="timer.js"></script>
 </html>
