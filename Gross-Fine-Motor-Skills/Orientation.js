@@ -5,7 +5,7 @@ var boxnord = document.getElementById("boxnord");
 var boxoest = document.getElementById("boxoest");
 var boxsyd = document.getElementById("boxsyd");
 var garden = document.getElementById("garden");
-var output = document.getElementById("output");
+//var output = document.getElementById("output");
 
 var maxX = garden.clientWidth - ball.clientWidth;
 var maxY = garden.clientHeight - ball.clientHeight;
@@ -42,8 +42,8 @@ function handleOrientation(event) {
 
   //console.log(x);
 
-  output.innerHTML = "beta : " + x + "\n";
-  output.innerHTML += "gamma: " + y + "\n";
+  //output.innerHTML = "beta : " + x + "\n";
+  //output.innerHTML += "gamma: " + y + "\n";
 
   // Because we don't want to have the device upside down
   // We constrain the x value to the range [-90,90]

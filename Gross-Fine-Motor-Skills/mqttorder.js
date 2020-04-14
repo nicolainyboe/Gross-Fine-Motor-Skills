@@ -134,12 +134,12 @@ function receiveMessage(message) {
   }
 }
 let count = 0;
-let sequence = [2, 4, 2, 3, 1, 2, 1];
+let sequence = [2, 4, 2, 3, 1, 2, 1, 3];
 let boxnum;
 
 let order = [];
 let orderFalsk = {
-  order: [1, 2, 3]
+  order: [1, 2, 3],
 };
 //console.log(order);
 localStorage.setItem("TheSequenceIs", JSON.stringify(sequence));
@@ -154,7 +154,7 @@ function ifRightSequence() {
   }
 }
 
-var counterFunction = function() {
+var counterFunction = function () {
   if (counterFunction.done) return;
   console.log("COUNTERFUNCTION");
 
@@ -183,7 +183,7 @@ var counterFunction = function() {
 
   count++;
   counterFunction.done = true;
-  if (order.length < sequence.length + 2) {
+  if (order.length < sequence.length + 1) {
     localStorage.setItem("WhatYouThinkIsTheOrder", JSON.stringify(order));
   }
 };
@@ -197,7 +197,7 @@ var rect1 = {
   y: parseInt(boxvest.getPropertyValue("top"), 10),
   width: parseInt(boxvest.getPropertyValue("width"), 10),
   height: parseInt(boxvest.getPropertyValue("height"), 10),
-  num: 1
+  num: 1,
 };
 
 var rect2 = {
@@ -205,7 +205,7 @@ var rect2 = {
   y: parseInt(boxnord.getPropertyValue("top"), 10),
   width: parseInt(boxnord.getPropertyValue("width"), 10),
   height: parseInt(boxnord.getPropertyValue("height"), 10),
-  num: 2
+  num: 2,
 };
 
 var rect3 = {
@@ -213,7 +213,7 @@ var rect3 = {
   y: parseInt(boxoest.getPropertyValue("top"), 10),
   width: parseInt(boxoest.getPropertyValue("width"), 10),
   height: parseInt(boxoest.getPropertyValue("height"), 10),
-  num: 3
+  num: 3,
 };
 
 var rect4 = {
@@ -221,7 +221,7 @@ var rect4 = {
   y: parseInt(boxsyd.getPropertyValue("top"), 10),
   width: parseInt(boxsyd.getPropertyValue("width"), 10),
   height: parseInt(boxsyd.getPropertyValue("height"), 10),
-  num: 4
+  num: 4,
 };
 let timer;
 let time = 0;
