@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="test.css" />
   </head>
   <body>
-    <button onclick="startDeviceOrientation()" id="startbutton">START</button>
-    <span>Test siden</span>
+   
+    <span>Hvad er den rigtige rækkefølge?</span> </br>
+    <span> Sequence =  2, 4, 2, 3, 1, 4, 1, 2</span>
     <div id="garden">
+      <div style="background-image: url('Peterplys.jpg');">
       <div id="frame">
         <div id="ball"></div>
         <div id="boxvest">
@@ -28,12 +30,14 @@
         
       </div>
     </div>
+  </div>
+  
 
     <pre id="output"></pre>
-    <a href="findOrder.html">Gå til næste prøve</a>
   </body>
 
   <script src="mqttws31.js"></script>
-  <script src="mqtttest.js"></script>
+  <script src="mqttorder.js"></script>
   <script src="Orientation.js"></script>
+  <script src="timer.js"></script>
 </html>

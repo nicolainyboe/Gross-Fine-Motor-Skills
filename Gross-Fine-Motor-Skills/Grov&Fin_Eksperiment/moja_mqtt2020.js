@@ -57,31 +57,48 @@ function receiveMessage(message) {
   ball.style.left = (maxX * receivedMessage.sendX) / 180 - 10 + "px";
   ball.style.top = (maxY * receivedMessage.sendY) / 180 - 10 + "px";
 
-  var ball = {
-    x: parseInt(ball.getPropertyValue("left"), 10),
-    y: parseInt(ball.getPropertyValue("top"), 10),
-    width: parseInt(ball.getPropertyValue("width"), 10),
-    height: parseInt(ball.getPropertyValue("height"), 10),
-  };
+  let topMeasure = parseInt(ball.style.top, 10);
+  // console.log(topMeasure);
+  let leftMeasure = parseInt(ball.style.left, 10);
 
   //VEST
 
-  if (ball.y >= 350 && ball.y <= 460 && ball.x >= 40 && ball.x <= 230) {
+  if (
+    topMeasure >= 350 &&
+    topMeasure <= 460 &&
+    leftMeasure >= 40 &&
+    leftMeasure <= 230
+  ) {
     boxnum = 1;
     counterFunction();
     ifRightSequence(1);
     ifNotRightFunction(1);
-  } else if (ball.y >= 40 && ball.y <= 150 && ball.x >= 410 && ball.x <= 600) {
+  } else if (
+    topMeasure >= 40 &&
+    topMeasure <= 150 &&
+    leftMeasure >= 410 &&
+    leftMeasure <= 600
+  ) {
     boxnum = 2;
     counterFunction();
     ifRightSequence(2);
     ifNotRightFunction(2);
-  } else if (ball.y >= 640 && ball.y <= 750 && ball.x >= 410 && ball.x <= 600) {
+  } else if (
+    topMeasure >= 640 &&
+    topMeasure <= 750 &&
+    leftMeasure >= 410 &&
+    leftMeasure <= 600
+  ) {
     boxnum = 4;
     counterFunction();
     ifRightSequence(4);
     ifNotRightFunction(4);
-  } else if (ball.y >= 350 && ball.y <= 460 && ball.x >= 760 && ball.x <= 950) {
+  } else if (
+    topMeasure >= 350 &&
+    topMeasure <= 460 &&
+    leftMeasure >= 760 &&
+    leftMeasure <= 950
+  ) {
     boxnum = 3;
     counterFunction();
     ifRightSequence(3);
@@ -100,10 +117,10 @@ function receiveMessage(message) {
   //Hvordan bruger vi vores objekter, istedet for hardcoded tal som ovenstående??? ^
 
   // if (
-  //   rect1.x < ball.y &&
-  //   rect1.x + rect1.width > ball.y &&
-  //   rect1.y < ball.x &&
-  //   rect1.y + rect1.height > ball.x
+  //   rect1.x < topMeasure &&
+  //   rect1.x + rect1.width > topMeasure &&
+  //   rect1.y < leftMeasure &&
+  //   rect1.y + rect1.height > leftMeasure
   // ) {
   //   // collision detected!
   //   boxnum = 1;
@@ -111,30 +128,30 @@ function receiveMessage(message) {
   //   ifRightSequence(1);
   //   ifNotRightFunction(1);
   // } else if (
-  //   rect2.x < ball.y &&
-  //   rect2.x + rect2.width > ball.y &&
-  //   rect2.y < ball.x &&
-  //   rect2.y + rect2.height > ball.x
+  //   rect2.x < topMeasure &&
+  //   rect2.x + rect2.width > topMeasure &&
+  //   rect2.y < leftMeasure &&
+  //   rect2.y + rect2.height > leftMeasure
   // ) {
   //   boxnum = 2;
   //   counterFunction();
   //   ifRightSequence(2);
   //   ifNotRightFunction(2);
   // } else if (
-  //   rect3.x < ball.y &&
-  //   rect3.x + rect3.width > ball.y &&
-  //   rect3.y < ball.x &&
-  //   rect3.y + rect3.height > ball.x
+  //   rect3.x < topMeasure &&
+  //   rect3.x + rect3.width > topMeasure &&
+  //   rect3.y < leftMeasure &&
+  //   rect3.y + rect3.height > leftMeasure
   // ) {
   //   boxnum = 3;
   //   counterFunction();
   //   ifRightSequence(3);
   //   ifNotRightFunction(3);
   // } else if (
-  //   rect4.x < ball.y &&
-  //   rect4.x + rect4.width > ball.y &&
-  //   rect4.y < ball.x &&
-  //   rect4.y + rect4.height > ball.x
+  //   rect4.x < topMeasure &&
+  //   rect4.x + rect4.width > topMeasure &&
+  //   rect4.y < leftMeasure &&
+  //   rect4.y + rect4.height > leftMeasure
   // ) {
   //   boxnum = 4;
   //   counterFunction();
@@ -152,7 +169,7 @@ function receiveMessage(message) {
   // }
 }
 let count = -1;
-let sequence = [2, 4, 2, 3, 1, 2, 1];
+let sequence = [2, 4, 2, 3, 1, 4, 1, 2];
 let boxnum;
 
 document.getElementById("collision").innerHTML =
@@ -179,6 +196,12 @@ function ifRightSequence(e) {
         document.getElementById("boxsyd").style.backgroundColor = "green";
       }
     }
+  }
+  if (count + 1 >= sequence.length) {
+    setTimeout(500);
+    window.location.href = "order.html";
+
+    console.log("nu vil jeg videre");
   }
 }
 
