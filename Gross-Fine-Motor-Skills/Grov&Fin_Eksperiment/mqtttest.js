@@ -171,20 +171,20 @@ function ifRightSequence(e) {
     if (e == sequence[count]) {
       console.log("Yeps");
       if (boxnum == 1) {
-        document.getElementById("collision").innerHTML =
-          "Counter = " + count + " " + "boxnum = " + boxnum;
+        /*document.getElementById("collision").innerHTML =
+          "Counter = " + count + " " + "boxnum = " + boxnum;*/
         document.getElementById("boxvest").style.backgroundColor = "green";
       } else if (boxnum == 2) {
-        document.getElementById("collision").innerHTML =
-          "Counter = " + count + " " + "boxnum = " + boxnum;
+        /*document.getElementById("collision").innerHTML =
+          "Counter = " + count + " " + "boxnum = " + boxnum;*/
         document.getElementById("boxnord").style.backgroundColor = "green";
       } else if (boxnum == 3) {
-        document.getElementById("collision").innerHTML =
-          "Counter = " + count + " " + "boxnum = " + boxnum;
+        /*document.getElementById("collision").innerHTML =
+          "Counter = " + count + " " + "boxnum = " + boxnum;*/
         document.getElementById("boxoest").style.backgroundColor = "green";
       } else if (boxnum == 4) {
-        document.getElementById("collision").innerHTML =
-          "Counter = " + count + " " + "boxnum = " + boxnum;
+        /*document.getElementById("collision").innerHTML =
+          "Counter = " + count + " " + "boxnum = " + boxnum;*/
         document.getElementById("boxsyd").style.backgroundColor = "green";
       }
     }

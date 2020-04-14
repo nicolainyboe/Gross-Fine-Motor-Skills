@@ -116,6 +116,7 @@ function receiveMessage(message) {
     document.getElementById("boxoest").style.backgroundColor = "white";
     document.getElementById("boxsyd").style.backgroundColor = "white";
     counterFunction.done = false;
+    wrongFunction.done = false;
   }
 
   //Hvordan bruger vi vores objekter, istedet for hardcoded tal som ovenstående??? ^
@@ -209,12 +210,13 @@ function ifRightSequence(e) {
   }
 }
 
+let wrongs = 0;
 function ifNotRightFunction(e) {
   for (i = 0; i < sequence.length; i++) {
     if (e != sequence[count]) {
       console.log("Nope");
       count = -1;
-
+      wrongFunction();
       //Alle blinker
       document.getElementById("boxvest").style.backgroundColor = "red";
       document.getElementById("boxnord").style.backgroundColor = "red";
@@ -244,6 +246,14 @@ function ifNotRightFunction(e) {
   }
 }
 
+var wrongFunction = function() {
+  if (wrongFunction.done) return;
+  console.log("wrongFunction");
+  wrongs++;
+  localStorage.setItem("HowManyWrongs", JSON.stringify(wrongs));
+  wrongFunction.done = true;
+};
+
 var counterFunction = function() {
   if (counterFunction.done) return;
   console.log("COUNTERFUNCTION");
@@ -255,6 +265,7 @@ var boxnord = window.getComputedStyle(document.getElementById("boxnord"), null);
 var boxoest = window.getComputedStyle(document.getElementById("boxoest"), null);
 var boxsyd = window.getComputedStyle(document.getElementById("boxsyd"), null);
 
+//SLETTES?
 var rect1 = {
   x: parseInt(boxvest.getPropertyValue("left"), 10),
   y: parseInt(boxvest.getPropertyValue("top"), 10),

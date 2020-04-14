@@ -5,6 +5,7 @@ const port = 9002;
 const secured = true;
 const topicx = "ituF2020/EXPD/TDCmignuitu_v2_x";
 const topicy = "ituF2020/EXPD/TDCmignuitu_v2_y";
+const datalogging = "ituF2020/EXPD/logging";
 const myID = "id" + parseInt(Math.random() * 100000, 10);
 
 // CONNECT ----------------------------------------------
@@ -25,6 +26,7 @@ function onConnect() {
   console.log("Connected");
   mqttClient.subscribe(topicx);
   mqttClient.subscribe(topicy);
+  mqttClient.subscribe(datalogging);
 }
 
 function sendMQTT(data) {
@@ -36,6 +38,23 @@ function sendMQTT(data) {
   mSend.destinationName = topicx;
 
   mqttClient.send(mSend);
+
+  // mOBJ = { deviceID: myID, content: y };
+  // mSend = new Paho.MQTT.Message(JSON.stringify(mOBJ));
+  // mSend.destinationName = topicy;
+
+  // mqttClient.send(mSend);
+}
+function sendOrder(data) {
+  //console.log("sending");
+  //console.log("message" + message);
+  let loggingOBJ = { deviceID: myID, content: data };
+
+  let sendLogging = new Paho.MQTT.Message(JSON.stringify(loggingOBJ));
+  sendLogging.destinationName = datalogging;
+  console.log("jeg sender?");
+  console.log(mqttClient.send(sendLogging));
+  mqttClient.send(sendLogging);
 
   // mOBJ = { deviceID: myID, content: y };
   // mSend = new Paho.MQTT.Message(JSON.stringify(mOBJ));
@@ -113,103 +132,60 @@ function receiveMessage(message) {
     document.getElementById("boxsyd").style.backgroundColor = "white";
     counterFunction.done = false;
   }
-
-  //Hvordan bruger vi vores objekter, istedet for hardcoded tal som ovenstående??? ^
-
-  // if (
-  //   rect1.x < topMeasure &&
-  //   rect1.x + rect1.width > topMeasure &&
-  //   rect1.y < leftMeasure &&
-  //   rect1.y + rect1.height > leftMeasure
-  // ) {
-  //   // collision detected!
-  //   boxnum = 1;
-  //   counterFunction();
-  //   ifRightSequence(1);
-  //   ifNotRightFunction(1);
-  // } else if (
-  //   rect2.x < topMeasure &&
-  //   rect2.x + rect2.width > topMeasure &&
-  //   rect2.y < leftMeasure &&
-  //   rect2.y + rect2.height > leftMeasure
-  // ) {
-  //   boxnum = 2;
-  //   counterFunction();
-  //   ifRightSequence(2);
-  //   ifNotRightFunction(2);
-  // } else if (
-  //   rect3.x < topMeasure &&
-  //   rect3.x + rect3.width > topMeasure &&
-  //   rect3.y < leftMeasure &&
-  //   rect3.y + rect3.height > leftMeasure
-  // ) {
-  //   boxnum = 3;
-  //   counterFunction();
-  //   ifRightSequence(3);
-  //   ifNotRightFunction(3);
-  // } else if (
-  //   rect4.x < topMeasure &&
-  //   rect4.x + rect4.width > topMeasure &&
-  //   rect4.y < leftMeasure &&
-  //   rect4.y + rect4.height > leftMeasure
-  // ) {
-  //   boxnum = 4;
-  //   counterFunction();
-  //   ifRightSequence(4);
-  //   ifNotRightFunction(4);
-  // } else {
-  //   // document.getElementById("collision").innerHTML = null;
-  //   document.getElementById("collision").innerHTML =
-  //     "Counter = " + count + " " + "boxnum = " + boxnum;
-  //   document.getElementById("boxvest").style.backgroundColor = "white";
-  //   document.getElementById("boxnord").style.backgroundColor = "white";
-  //   document.getElementById("boxoest").style.backgroundColor = "white";
-  //   document.getElementById("boxsyd").style.backgroundColor = "white";
-  //   counterFunction.done = false;
-  // }
 }
 let count = 0;
 let sequence = [2, 4, 2, 3, 1, 2, 1];
 let boxnum;
 
 let order = [];
+let orderFalsk = {
+  order: [1, 2, 3]
+};
+//console.log(order);
+localStorage.setItem("TheSequenceIs", JSON.stringify(sequence));
 
 document.getElementById("collision").innerHTML =
   "Antal ramte felter = " + count + "/8";
 function ifRightSequence() {
-  if (count >= sequence.length) {
+  if (count > sequence.length) {
     console.log("det var hvad du troede var rækkefølgen");
-    window.alert("Du mener rækkefølgen er; " + order);
+    console.log("Du mener rækkefølgen er; " + order);
+    clearInterval(timer);
   }
 }
 
 var counterFunction = function() {
   if (counterFunction.done) return;
   console.log("COUNTERFUNCTION");
+
   if (boxnum == 1) {
     document.getElementById("collision").innerHTML =
-      "Antal ramte felter = " + (count+1) + "/8";
+      "Antal ramte felter = " + (count + 1) + "/8";
     document.getElementById("boxvest").style.backgroundColor = "yellow";
     order.push(1);
   } else if (boxnum == 2) {
     document.getElementById("collision").innerHTML =
-      "Antal ramte felter = " + (count+1) + "/8";
+      "Antal ramte felter = " + (count + 1) + "/8";
     document.getElementById("boxnord").style.backgroundColor = "yellow";
     order.push(2);
   } else if (boxnum == 3) {
     document.getElementById("collision").innerHTML =
-      "Antal ramte felter = " + (count+1) + "/8";
+      "Antal ramte felter = " + (count + 1) + "/8";
     document.getElementById("boxoest").style.backgroundColor = "yellow";
     order.push(3);
   } else if (boxnum == 4) {
     document.getElementById("collision").innerHTML =
-      "Antal ramte felter = " + (count+1) + "/8";
+      "Antal ramte felter = " + (count + 1) + "/8";
     document.getElementById("boxsyd").style.backgroundColor = "yellow";
     order.push(4);
   }
-  console.log(order);
+  //console.log(order);
+
   count++;
   counterFunction.done = true;
+  if (order.length < sequence.length + 2) {
+    localStorage.setItem("WhatYouThinkIsTheOrder", JSON.stringify(order));
+  }
 };
 var boxvest = window.getComputedStyle(document.getElementById("boxvest"), null);
 var boxnord = window.getComputedStyle(document.getElementById("boxnord"), null);
@@ -247,7 +223,17 @@ var rect4 = {
   height: parseInt(boxsyd.getPropertyValue("height"), 10),
   num: 4
 };
+let timer;
+let time = 0;
+function completionTimer() {
+  timer = setInterval(countUp, 1000);
+}
 
+function countUp() {
+  time++;
+  console.log(time);
+  localStorage.setItem("Tid", time);
+}
 function conLost() {
   console.log("Lost connection");
 }
