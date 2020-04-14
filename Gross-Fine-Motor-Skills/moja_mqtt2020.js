@@ -28,37 +28,27 @@ function onConnect() {
 }
 
 function sendMQTT(data) {
-  //console.log("sending");
-  //console.log("message" + message);
   let mOBJ = { deviceID: myID, content: data };
 
   let mSend = new Paho.MQTT.Message(JSON.stringify(mOBJ));
   mSend.destinationName = topicx;
 
   mqttClient.send(mSend);
-
-  // mOBJ = { deviceID: myID, content: y };
-  // mSend = new Paho.MQTT.Message(JSON.stringify(mOBJ));
-  // mSend.destinationName = topicy;
-
-  // mqttClient.send(mSend);
 }
 
 function receiveMessage(message) {
-  //console.log("message received");
   let mUnpack = JSON.parse(message.payloadString);
   let senderID = mUnpack.deviceID;
 
   let receivedMessage = mUnpack.content;
-  //console.log(mUnpack);
+
   //do stuff with the message
-  //console.log(receivedMessage.sendX);
-  //console.log(receivedMessage.sendY);
+
   ball.style.left = (maxX * receivedMessage.sendX) / 180 - 10 + "px";
   ball.style.top = (maxY * receivedMessage.sendY) / 180 - 10 + "px";
 
   let topMeasure = parseInt(ball.style.top, 10);
-  // console.log(topMeasure);
+
   let leftMeasure = parseInt(ball.style.left, 10);
 
   //Farv boksene og check om brugeren finder den rigtige sekvens
@@ -108,7 +98,6 @@ function receiveMessage(message) {
     ifRightSequence(4);
     ifNotRightFunction(4);
   } else {
-    // document.getElementById("collision").innerHTML = null;
     document.getElementById("collision").innerHTML =
       "Antal rigtige felter = " + (count + 1) + "/8";
     document.getElementById("boxvest").style.backgroundColor = "white";
@@ -118,60 +107,6 @@ function receiveMessage(message) {
     counterFunction.done = false;
     wrongFunction.done = false;
   }
-
-  //Hvordan bruger vi vores objekter, istedet for hardcoded tal som ovenstående??? ^
-
-  // if (
-  //   rect1.x < topMeasure &&
-  //   rect1.x + rect1.width > topMeasure &&
-  //   rect1.y < leftMeasure &&
-  //   rect1.y + rect1.height > leftMeasure
-  // ) {
-  //   // collision detected!
-  //   boxnum = 1;
-  //   counterFunction();
-  //   ifRightSequence(1);
-  //   ifNotRightFunction(1);
-  // } else if (
-  //   rect2.x < topMeasure &&
-  //   rect2.x + rect2.width > topMeasure &&
-  //   rect2.y < leftMeasure &&
-  //   rect2.y + rect2.height > leftMeasure
-  // ) {
-  //   boxnum = 2;
-  //   counterFunction();
-  //   ifRightSequence(2);
-  //   ifNotRightFunction(2);
-  // } else if (
-  //   rect3.x < topMeasure &&
-  //   rect3.x + rect3.width > topMeasure &&
-  //   rect3.y < leftMeasure &&
-  //   rect3.y + rect3.height > leftMeasure
-  // ) {
-  //   boxnum = 3;
-  //   counterFunction();
-  //   ifRightSequence(3);
-  //   ifNotRightFunction(3);
-  // } else if (
-  //   rect4.x < topMeasure &&
-  //   rect4.x + rect4.width > topMeasure &&
-  //   rect4.y < leftMeasure &&
-  //   rect4.y + rect4.height > leftMeasure
-  // ) {
-  //   boxnum = 4;
-  //   counterFunction();
-  //   ifRightSequence(4);
-  //   ifNotRightFunction(4);
-  // } else {
-  //   // document.getElementById("collision").innerHTML = null;
-  //   document.getElementById("collision").innerHTML =
-  //     "Counter = " + count + " " + "boxnum = " + boxnum;
-  //   document.getElementById("boxvest").style.backgroundColor = "white";
-  //   document.getElementById("boxnord").style.backgroundColor = "white";
-  //   document.getElementById("boxoest").style.backgroundColor = "white";
-  //   document.getElementById("boxsyd").style.backgroundColor = "white";
-  //   counterFunction.done = false;
-  // }
 }
 let count = -1;
 let sequence = [2, 4, 2, 3, 1, 4, 1, 2];
@@ -222,26 +157,6 @@ function ifNotRightFunction(e) {
       document.getElementById("boxnord").style.backgroundColor = "red";
       document.getElementById("boxoest").style.backgroundColor = "red";
       document.getElementById("boxsyd").style.backgroundColor = "red";
-
-      // Kun den ramte blinker
-      //   if (boxnum == 1) {
-      //     document.getElementById("collision").innerHTML =
-      //       "Counter = " + count + " " + "boxnum = " + boxnum;
-      //     document.getElementById("boxvest").style.backgroundColor = "red";
-      //   } else if (boxnum == 2) {
-      //     document.getElementById("collision").innerHTML =
-      //       "Counter = " + count + " " + "boxnum = " + boxnum;
-      //     document.getElementById("boxnord").style.backgroundColor = "red";
-      //   } else if (boxnum == 3) {
-      //     document.getElementById("collision").innerHTML =
-      //       "Counter = " + count + " " + "boxnum = " + boxnum;
-      //     document.getElementById("boxoest").style.backgroundColor = "red";
-      //   } else if (boxnum == 4) {
-      //     document.getElementById("collision").innerHTML =
-      //       "Counter = " + count + " " + "boxnum = " + boxnum;
-      //     document.getElementById("boxsyd").style.backgroundColor = "red";
-      //   }
-      // }
     }
   }
 }

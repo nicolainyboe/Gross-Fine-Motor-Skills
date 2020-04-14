@@ -30,24 +30,14 @@ function onConnect() {
 }
 
 function sendMQTT(data) {
-  //console.log("sending");
-  //console.log("message" + message);
   let mOBJ = { deviceID: myID, content: data };
 
   let mSend = new Paho.MQTT.Message(JSON.stringify(mOBJ));
   mSend.destinationName = topicx;
 
   mqttClient.send(mSend);
-
-  // mOBJ = { deviceID: myID, content: y };
-  // mSend = new Paho.MQTT.Message(JSON.stringify(mOBJ));
-  // mSend.destinationName = topicy;
-
-  // mqttClient.send(mSend);
 }
 function sendOrder(data) {
-  //console.log("sending");
-  //console.log("message" + message);
   let loggingOBJ = { deviceID: myID, content: data };
 
   let sendLogging = new Paho.MQTT.Message(JSON.stringify(loggingOBJ));
@@ -55,29 +45,20 @@ function sendOrder(data) {
   console.log("jeg sender?");
   console.log(mqttClient.send(sendLogging));
   mqttClient.send(sendLogging);
-
-  // mOBJ = { deviceID: myID, content: y };
-  // mSend = new Paho.MQTT.Message(JSON.stringify(mOBJ));
-  // mSend.destinationName = topicy;
-
-  // mqttClient.send(mSend);
 }
 
 function receiveMessage(message) {
-  //console.log("message received");
   let mUnpack = JSON.parse(message.payloadString);
   let senderID = mUnpack.deviceID;
 
   let receivedMessage = mUnpack.content;
-  //console.log(mUnpack);
+
   //do stuff with the message
-  //console.log(receivedMessage.sendX);
-  //console.log(receivedMessage.sendY);
+
   ball.style.left = (maxX * receivedMessage.sendX) / 180 - 10 + "px";
   ball.style.top = (maxY * receivedMessage.sendY) / 180 - 10 + "px";
 
   let topMeasure = parseInt(ball.style.top, 10);
-  // console.log(topMeasure);
   let leftMeasure = parseInt(ball.style.left, 10);
 
   //Kør sekvensen igen uden feedback
@@ -123,7 +104,6 @@ function receiveMessage(message) {
     counterFunction();
     ifRightSequence();
   } else {
-    // document.getElementById("collision").innerHTML = null;
     document.getElementById("collision").innerHTML =
       "Antal ramte felter = " + count + "/8";
     document.getElementById("boxvest").style.backgroundColor = "white";
@@ -141,7 +121,7 @@ let order = [];
 let orderFalsk = {
   order: [1, 2, 3],
 };
-//console.log(order);
+
 localStorage.setItem("TheSequenceIs", JSON.stringify(sequence));
 
 document.getElementById("collision").innerHTML =
@@ -179,8 +159,6 @@ var counterFunction = function () {
     document.getElementById("boxsyd").style.backgroundColor = "yellow";
     order.push(4);
   }
-  //console.log(order);
-
   count++;
   counterFunction.done = true;
   if (order.length < sequence.length + 1) {
@@ -223,6 +201,7 @@ var rect4 = {
   height: parseInt(boxsyd.getPropertyValue("height"), 10),
   num: 4,
 };
+
 let timer;
 let time = 0;
 function completionTimer() {
