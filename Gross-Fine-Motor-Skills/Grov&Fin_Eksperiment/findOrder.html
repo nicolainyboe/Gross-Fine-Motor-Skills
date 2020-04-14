@@ -8,29 +8,25 @@
   </head>
   <body>
     <!-- <button onclick="startDeviceOrientation()" id="startbutton">START</button> -->
-    <span>Find den rigtige rækkefølge!</span> </br>
-    <span> Sequence = 2, 4, 2, 3, 1, 4, 1, 2</span>
+    <div id="intro">
+      <h2>
+        Find den rigtige rækkefølge. <br />Hvis du rammer et rødt felt, skal du
+        starte forfra.
+      </h2>
+    </div>
+
     <div id="garden">
-      <div id="frame">
-        <div id="ball"></div>
-        <div id="boxvest">
-          <span>1</span>
-        </div>
-        <div id="boxnord">
-          <span>2</span>
-        </div>
-        <div id="boxoest">
-          <span>3</span>
-        </div>
-        <div id="boxsyd">
-          <span>4</span>
-        </div>
-        <span id="collision"></span></br>
-        
-      </div>
+      <div id="ball"></div>
+      <div id="boxvest"></div>
+      <div id="boxnord"></div>
+      <div id="boxoest"></div>
+      <div id="boxsyd"></div>
     </div>
 
     <pre id="output"></pre>
+    <div id="collision"></div>
+    <br />
+    <a href="index.html">Gå tilbage</a>
     <a href="order.html">Gå til næste prøve</a>
   </body>
 

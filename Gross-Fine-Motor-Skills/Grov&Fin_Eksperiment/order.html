@@ -6,34 +6,27 @@
     <title>Document</title>
     <link rel="stylesheet" href="test.css" />
   </head>
-  <body onload="completionTimer()">
-   
-    <span>Hvad er den rigtige rækkefølge?</span> </br>
-    <span> Sequence =  2, 4, 2, 3, 1, 4, 1, 2</span>
+  <body>
+    <div id="intro">
+      <h2>
+        Gengiv rækkefølgen. <br />Se hvor godt du kan huske den med ét forsøg.
+      </h2>
+    </div>
+
     <div id="garden">
-      <div style="background-image: url('Peterplys.jpg');">
-      <div id="frame">
+      <div>
         <div id="ball"></div>
-        <div id="boxvest">
-          <span>1</span>
-        </div>
-        <div id="boxnord">
-          <span>2</span>
-        </div>
-        <div id="boxoest">
-          <span>3</span>
-        </div>
-        <div id="boxsyd">
-          <span>4</span>
-        </div>
-        <span id="collision"></span></br>
-        
+        <div id="boxvest"></div>
+        <div id="boxnord"></div>
+        <div id="boxoest"></div>
+        <div id="boxsyd"></div>
       </div>
     </div>
-  </div>
-  
 
     <pre id="output"></pre>
+    <div id="collision"></div>
+    <br />
+    <a href="findOrder.html">Gå tilbage</a>
   </body>
 
   <script src="mqttws31.js"></script>
