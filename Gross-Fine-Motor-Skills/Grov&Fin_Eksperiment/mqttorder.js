@@ -80,48 +80,52 @@ function receiveMessage(message) {
   // console.log(topMeasure);
   let leftMeasure = parseInt(ball.style.left, 10);
 
-  //VEST
+  //Kør sekvensen igen uden feedback
 
   if (
-    topMeasure >= 350 &&
-    topMeasure <= 460 &&
-    leftMeasure >= 40 &&
-    leftMeasure <= 230
+    //VEST
+    topMeasure >= 250 &&
+    topMeasure <= 430 &&
+    leftMeasure >= 60 &&
+    leftMeasure <= 180
   ) {
     boxnum = 1;
     counterFunction();
     ifRightSequence();
   } else if (
+    //NORD
     topMeasure >= 40 &&
-    topMeasure <= 150 &&
-    leftMeasure >= 410 &&
-    leftMeasure <= 600
+    topMeasure <= 140 &&
+    leftMeasure >= 390 &&
+    leftMeasure <= 590
   ) {
     boxnum = 2;
     counterFunction();
     ifRightSequence();
   } else if (
-    topMeasure >= 640 &&
-    topMeasure <= 750 &&
-    leftMeasure >= 410 &&
-    leftMeasure <= 600
+    //ØST
+    topMeasure >= 250 &&
+    topMeasure <= 430 &&
+    leftMeasure >= 780 &&
+    leftMeasure <= 900
   ) {
-    boxnum = 4;
+    boxnum = 3;
     counterFunction();
     ifRightSequence();
   } else if (
-    topMeasure >= 350 &&
-    topMeasure <= 460 &&
-    leftMeasure >= 760 &&
-    leftMeasure <= 950
+    //SYD
+    topMeasure >= 550 &&
+    topMeasure <= 650 &&
+    leftMeasure >= 390 &&
+    leftMeasure <= 590
   ) {
-    boxnum = 3;
+    boxnum = 4;
     counterFunction();
     ifRightSequence();
   } else {
     // document.getElementById("collision").innerHTML = null;
     document.getElementById("collision").innerHTML =
-      "Counter = " + count + " " + "boxnum = " + boxnum;
+      "Antal ramte felter = " + count + "/8";
     document.getElementById("boxvest").style.backgroundColor = "white";
     document.getElementById("boxnord").style.backgroundColor = "white";
     document.getElementById("boxoest").style.backgroundColor = "white";
@@ -135,13 +139,13 @@ let boxnum;
 
 let order = [];
 let orderFalsk = {
-  order: [1, 2, 3],
+  order: [1, 2, 3]
 };
 //console.log(order);
 localStorage.setItem("TheSequenceIs", JSON.stringify(sequence));
 
 document.getElementById("collision").innerHTML =
-  "Counter = " + count + " " + "boxnum = " + boxnum;
+  "Antal ramte felter = " + count + "/8";
 function ifRightSequence() {
   if (count > sequence.length) {
     console.log("det var hvad du troede var rækkefølgen");
@@ -150,28 +154,28 @@ function ifRightSequence() {
   }
 }
 
-var counterFunction = function () {
+var counterFunction = function() {
   if (counterFunction.done) return;
   console.log("COUNTERFUNCTION");
 
   if (boxnum == 1) {
     document.getElementById("collision").innerHTML =
-      "Counter = " + count + " " + "boxnum = " + boxnum;
+      "Antal ramte felter = " + (count + 1) + "/8";
     document.getElementById("boxvest").style.backgroundColor = "yellow";
     order.push(1);
   } else if (boxnum == 2) {
     document.getElementById("collision").innerHTML =
-      "Counter = " + count + " " + "boxnum = " + boxnum;
+      "Antal ramte felter = " + (count + 1) + "/8";
     document.getElementById("boxnord").style.backgroundColor = "yellow";
     order.push(2);
   } else if (boxnum == 3) {
     document.getElementById("collision").innerHTML =
-      "Counter = " + count + " " + "boxnum = " + boxnum;
+      "Antal ramte felter = " + (count + 1) + "/8";
     document.getElementById("boxoest").style.backgroundColor = "yellow";
     order.push(3);
   } else if (boxnum == 4) {
     document.getElementById("collision").innerHTML =
-      "Counter = " + count + " " + "boxnum = " + boxnum;
+      "Antal ramte felter = " + (count + 1) + "/8";
     document.getElementById("boxsyd").style.backgroundColor = "yellow";
     order.push(4);
   }
@@ -193,7 +197,7 @@ var rect1 = {
   y: parseInt(boxvest.getPropertyValue("top"), 10),
   width: parseInt(boxvest.getPropertyValue("width"), 10),
   height: parseInt(boxvest.getPropertyValue("height"), 10),
-  num: 1,
+  num: 1
 };
 
 var rect2 = {
@@ -201,7 +205,7 @@ var rect2 = {
   y: parseInt(boxnord.getPropertyValue("top"), 10),
   width: parseInt(boxnord.getPropertyValue("width"), 10),
   height: parseInt(boxnord.getPropertyValue("height"), 10),
-  num: 2,
+  num: 2
 };
 
 var rect3 = {
@@ -209,7 +213,7 @@ var rect3 = {
   y: parseInt(boxoest.getPropertyValue("top"), 10),
   width: parseInt(boxoest.getPropertyValue("width"), 10),
   height: parseInt(boxoest.getPropertyValue("height"), 10),
-  num: 3,
+  num: 3
 };
 
 var rect4 = {
@@ -217,7 +221,7 @@ var rect4 = {
   y: parseInt(boxsyd.getPropertyValue("top"), 10),
   width: parseInt(boxsyd.getPropertyValue("width"), 10),
   height: parseInt(boxsyd.getPropertyValue("height"), 10),
-  num: 4,
+  num: 4
 };
 let timer;
 let time = 0;

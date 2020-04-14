@@ -61,40 +61,44 @@ function receiveMessage(message) {
   // console.log(topMeasure);
   let leftMeasure = parseInt(ball.style.left, 10);
 
-  //VEST
+  //Farv boksene
 
   if (
-    topMeasure >= 350 &&
-    topMeasure <= 460 &&
-    leftMeasure >= 40 &&
-    leftMeasure <= 230
+    //VEST
+    topMeasure >= 250 &&
+    topMeasure <= 430 &&
+    leftMeasure >= 60 &&
+    leftMeasure <= 180
   ) {
-    document.getElementById("boxvest").style.backgroundColor = "green";
+    document.getElementById("boxvest").style.backgroundColor = "lightblue";
   } else if (
+    //NORD
     topMeasure >= 40 &&
-    topMeasure <= 150 &&
-    leftMeasure >= 410 &&
-    leftMeasure <= 600
+    topMeasure <= 140 &&
+    leftMeasure >= 390 &&
+    leftMeasure <= 590
   ) {
-    document.getElementById("boxnord").style.backgroundColor = "green";
+    document.getElementById("boxnord").style.backgroundColor = "lightblue";
   } else if (
-    topMeasure >= 640 &&
-    topMeasure <= 750 &&
-    leftMeasure >= 410 &&
-    leftMeasure <= 600
+    //ØST
+    topMeasure >= 250 &&
+    topMeasure <= 430 &&
+    leftMeasure >= 780 &&
+    leftMeasure <= 900
   ) {
-    document.getElementById("boxsyd").style.backgroundColor = "green";
+    document.getElementById("boxoest").style.backgroundColor = "lightblue";
   } else if (
-    topMeasure >= 350 &&
-    topMeasure <= 460 &&
-    leftMeasure >= 760 &&
-    leftMeasure <= 950
+    //SYD
+    topMeasure >= 550 &&
+    topMeasure <= 650 &&
+    leftMeasure >= 390 &&
+    leftMeasure <= 590
   ) {
-    document.getElementById("boxoest").style.backgroundColor = "green";
+    document.getElementById("boxsyd").style.backgroundColor = "lightblue";
   } else {
     // document.getElementById("collision").innerHTML = null;
-    document.getElementById("collision").innerHTML =
-      "Counter = " + count + " " + "boxnum = " + boxnum;
+    /*document.getElementById("collision").innerHTML =
+      "Counter = " + count + " " + "boxnum = " + boxnum;*/
     document.getElementById("boxvest").style.backgroundColor = "white";
     document.getElementById("boxnord").style.backgroundColor = "white";
     document.getElementById("boxoest").style.backgroundColor = "white";
@@ -160,27 +164,27 @@ let count = -1;
 let sequence = [2, 4, 2, 3, 1, 2, 1];
 let boxnum;
 
-document.getElementById("collision").innerHTML =
-  "Counter = " + count + " " + "boxnum = " + boxnum;
+/*document.getElementById("collision").innerHTML =
+  "Counter = " + count + " " + "boxnum = " + boxnum;*/
 function ifRightSequence(e) {
   for (i = 0; i < sequence.length; i++) {
     if (e == sequence[count]) {
       console.log("Yeps");
       if (boxnum == 1) {
-        document.getElementById("collision").innerHTML =
-          "Counter = " + count + " " + "boxnum = " + boxnum;
+        /*document.getElementById("collision").innerHTML =
+          "Counter = " + count + " " + "boxnum = " + boxnum;*/
         document.getElementById("boxvest").style.backgroundColor = "green";
       } else if (boxnum == 2) {
-        document.getElementById("collision").innerHTML =
-          "Counter = " + count + " " + "boxnum = " + boxnum;
+        /*document.getElementById("collision").innerHTML =
+          "Counter = " + count + " " + "boxnum = " + boxnum;*/
         document.getElementById("boxnord").style.backgroundColor = "green";
       } else if (boxnum == 3) {
-        document.getElementById("collision").innerHTML =
-          "Counter = " + count + " " + "boxnum = " + boxnum;
+        /*document.getElementById("collision").innerHTML =
+          "Counter = " + count + " " + "boxnum = " + boxnum;*/
         document.getElementById("boxoest").style.backgroundColor = "green";
       } else if (boxnum == 4) {
-        document.getElementById("collision").innerHTML =
-          "Counter = " + count + " " + "boxnum = " + boxnum;
+        /*document.getElementById("collision").innerHTML =
+          "Counter = " + count + " " + "boxnum = " + boxnum;*/
         document.getElementById("boxsyd").style.backgroundColor = "green";
       }
     }
@@ -222,7 +226,7 @@ function ifNotRightFunction(e) {
   }
 }
 
-var counterFunction = function () {
+var counterFunction = function() {
   if (counterFunction.done) return;
   console.log("COUNTERFUNCTION");
   count++;
@@ -238,7 +242,7 @@ var rect1 = {
   y: parseInt(boxvest.getPropertyValue("top"), 10),
   width: parseInt(boxvest.getPropertyValue("width"), 10),
   height: parseInt(boxvest.getPropertyValue("height"), 10),
-  num: 1,
+  num: 1
 };
 
 var rect2 = {
@@ -246,7 +250,7 @@ var rect2 = {
   y: parseInt(boxnord.getPropertyValue("top"), 10),
   width: parseInt(boxnord.getPropertyValue("width"), 10),
   height: parseInt(boxnord.getPropertyValue("height"), 10),
-  num: 2,
+  num: 2
 };
 
 var rect3 = {
@@ -254,7 +258,7 @@ var rect3 = {
   y: parseInt(boxoest.getPropertyValue("top"), 10),
   width: parseInt(boxoest.getPropertyValue("width"), 10),
   height: parseInt(boxoest.getPropertyValue("height"), 10),
-  num: 3,
+  num: 3
 };
 
 var rect4 = {
@@ -262,7 +266,7 @@ var rect4 = {
   y: parseInt(boxsyd.getPropertyValue("top"), 10),
   width: parseInt(boxsyd.getPropertyValue("width"), 10),
   height: parseInt(boxsyd.getPropertyValue("height"), 10),
-  num: 4,
+  num: 4
 };
 
 function conLost() {

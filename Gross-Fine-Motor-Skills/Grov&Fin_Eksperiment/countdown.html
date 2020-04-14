@@ -6,16 +6,17 @@
     <title>Document</title>
     <link rel="stylesheet" href="test.css" />
   </head>
-  <body>
-    <!-- <button onclick="startDeviceOrientation()" id="startbutton">START</button> -->
-    <div id="intro">
-      <h2>
-        Find den rigtige rækkefølge. <br />Hvis du rammer et rødt felt, skal du
-        starte forfra.
-      </h2>
-    </div>
 
+  <body onload="callTimer()">
     <div id="garden">
+      <div id="text">
+        <span
+          >Vent 30 sekunder og gengiv den rigtige rækkefølge på næste side</span
+        >
+      </div>
+      <div id="timer">
+        <label id="minutter">00</label>:<label id="sekunder">00</label>
+      </div>
       <div id="ball"></div>
       <div id="boxvest"></div>
       <div id="boxnord"></div>
@@ -24,13 +25,10 @@
     </div>
 
     <pre id="output"></pre>
-    <div id="collision"></div>
-    <br />
-    <a href="index.html">Gå tilbage</a>
-    <a href="countdown.html">Gå til næste prøve</a>
   </body>
 
   <script src="mqttws31.js"></script>
-  <script src="moja_mqtt2020.js"></script>
+  <script src="mqtttest.js"></script>
   <script src="Orientation.js"></script>
+  <script src="countdowntimer.js"></script>
 </html>

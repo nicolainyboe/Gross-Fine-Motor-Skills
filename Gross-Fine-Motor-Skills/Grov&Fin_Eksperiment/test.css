@@ -1,14 +1,16 @@
 #garden {
   position: relative;
-  float: left;
+  float: right;
   width: 1000px;
   height: 750px;
   border: 5px solid rgb(146, 196, 238);
+  margin: 10px;
 }
 
 #startbutton {
   float: left;
-  margin-left: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 button {
@@ -18,84 +20,32 @@ button {
   background: blue;
   padding: 10px;
   border: 6px solid rgb(146, 196, 238);
+  margin-bottom: 20px;
 }
 
-#ball {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 50px;
-  height: 50px;
-  background: blue;
-  border-radius: 100%;
-  z-index: 1;
-}
-
-#boxnord {
-  position: absolute;
-  border-radius: 3px;
-  border: 2px solid black;
-  padding: 20px;
-  width: 200px;
-  height: 100px;
-  left: 390px;
-  top: 40px;
-}
-#boxoest {
-  position: absolute;
-  border-radius: 3px;
-  border: 2px solid black;
-  padding: 20px;
-  width: 120px;
-  height: 180px;
-  left: 780px;
-  top: 250px;
-}
-#boxsyd {
-  position: absolute;
-  border-radius: 3px;
-  border: 2px solid black;
-  padding: 20px;
-  width: 200px;
-  height: 100px;
-  left: 390px;
-  top: 550px;
-}
-#boxvest {
-  position: absolute;
-  border-radius: 3px;
-  border: 2px solid black;
-  padding: 20px;
-  width: 120px;
-  height: 180px;
-  left: 60px;
-  top: 250px;
-}
-
-#frame {
+#intro {
   position: relative;
-  height: 750px;
-  width: 100%;
-  margin: auto;
-  /*border: 5px solid white;*/
-  text-align: center;
-  line-height: 400px;
+  float: left;
+  margin: 10px;
+  font-family: "Franklin Gothic Medium", "Arial Wide", Arial, sans-serif;
+  width: 350px;
 }
 
-span {
-  vertical-align: middle;
+#intro h2 {
+  padding: 10px;
 }
 
 #collision {
-  float: left;
   margin: 20px;
+  padding-bottom: 50px;
   font-size: 20px;
   font-family: "Franklin Gothic Medium", "Arial Wide", Arial, sans-serif;
+  color: blue;
 }
 
 a {
-  float: left;
-  margin: 20px;
+  margin-left: 20px;
+  font-size: 20px;
 }
 a:link {
   color: black;
@@ -111,4 +61,88 @@ a:hover {
   color: blue;
   background-color: transparent;
   font-family: "Franklin Gothic Medium", "Arial Wide", Arial, sans-serif;
+}
+
+#ball {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  background: blue;
+  border-radius: 100%;
+  z-index: 1;
+}
+
+#boxvest {
+  position: absolute;
+  border-radius: 3px;
+  border: 2px solid black;
+  padding: 20px;
+  width: 120px;
+  height: 180px;
+  left: 60px;
+  top: 250px;
+}
+
+#boxnord {
+  position: absolute;
+  border-radius: 3px;
+  border: 2px solid black;
+  padding: 20px;
+  width: 200px;
+  height: 100px;
+  left: 390px;
+  top: 40px;
+}
+
+#boxoest {
+  position: absolute;
+  border-radius: 3px;
+  border: 2px solid black;
+  padding: 20px;
+  width: 120px;
+  height: 180px;
+  left: 780px;
+  top: 250px;
+}
+
+#boxsyd {
+  position: absolute;
+  border-radius: 3px;
+  border: 2px solid black;
+  padding: 20px;
+  width: 200px;
+  height: 100px;
+  left: 390px;
+  top: 550px;
+}
+
+span {
+  vertical-align: middle;
+}
+
+#timer {
+  position: relative;
+  top: 350px;
+  font-size: 56px;
+  text-align: center;
+  display: block;
+
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+#text {
+  position: relative;
+  top: 300px;
+  font-size: 30px;
+  text-align: center;
+  display: block;
+
+  margin: auto;
+  width: 50%;
+
+  padding: 10px;
 }
