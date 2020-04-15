@@ -6,27 +6,20 @@
     <title>Document</title>
     <link rel="stylesheet" href="test.css" />
   </head>
-  <body>
-    <div id="intro">
-      <button onclick="startDeviceOrientation()" id="startbutton">START</button>
+  <body onload="clearStorage()">
+    <div id="introSubmit">
+      
       <h2>
-        Velkommen til denne test! <br />Tryk START på din telefon for at komme
-        igang.
-      </h2>
+        Velkommen til denne test! Hvad er dit navn?
+    </div>
+    <div id="nameinput">
+        <input type="text" name="name" id="testname">
+        <button onclick="saveDataAndMoveOn()" type="button" id="buttonSubmit">Submit</button>
     </div>
 
-    <div id="garden">
-      <div id="ball"></div>
-      <div id="boxvest"></div>
-      <div id="boxnord"></div>
-      <div id="boxoest"></div>
-      <div id="boxsyd"></div>
-    </div>
-
-    <a href="findOrder.html">Gå til testen</a>
+    
   </body>
 
-  <script src="mqttws31.js"></script>
-  <script src="mqtttest.js"></script>
-  <script src="Orientation.js"></script>
+  <script src="name.js"></script>
+  
 </html>
