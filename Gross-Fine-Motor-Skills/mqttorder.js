@@ -127,7 +127,7 @@ localStorage.setItem("TheSequenceIs", JSON.stringify(sequence));
 document.getElementById("collision").innerHTML =
   "Antal ramte felter = " + count + "/8";
 function ifRightSequence() {
-  if (count > sequence.length) {
+  if (count > sequence.length - 1) {
     console.log("det var hvad du troede var rækkefølgen");
     console.log("Du mener rækkefølgen er; " + order);
     clearInterval(timer);
@@ -161,7 +161,7 @@ var counterFunction = function () {
   }
   count++;
   counterFunction.done = true;
-  if (order.length < sequence.length + 1) {
+  if (order.length < sequence.length) {
     localStorage.setItem("WhatYouThinkIsTheOrder", JSON.stringify(order));
   }
 };
@@ -211,8 +211,9 @@ function completionTimer() {
 function countUp() {
   time++;
   console.log(time);
-  localStorage.setItem("Tid", time);
+  localStorage.setItem("FinalTime", time);
 }
+
 function conLost() {
   console.log("Lost connection");
 }

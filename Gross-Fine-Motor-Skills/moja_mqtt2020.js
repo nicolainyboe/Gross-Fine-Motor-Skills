@@ -109,7 +109,7 @@ function receiveMessage(message) {
   }
 }
 let count = -1;
-let sequence = [2, 4, 2, 3, 1, 4, 1, 2];
+let sequence = [2, 4, 2, 3, 1, 2, 1, 3];
 let boxnum;
 
 document.getElementById("collision").innerHTML =
@@ -137,6 +137,8 @@ function ifRightSequence(e) {
       }
     }
   }
+
+  // Need to make timeout before function run
   if (count + 1 >= sequence.length) {
     setTimeout(500);
     window.location.href = "countdown.html";
@@ -213,6 +215,17 @@ var rect4 = {
   num: 4,
 };
 
+let timer;
+let time = 0;
+function completionOrderTimer() {
+  timer = setInterval(countUp, 1000);
+}
+
+function countUp() {
+  time++;
+  console.log(time);
+  localStorage.setItem("TidGetOrder", time);
+}
 function conLost() {
   console.log("Lost connection");
 }

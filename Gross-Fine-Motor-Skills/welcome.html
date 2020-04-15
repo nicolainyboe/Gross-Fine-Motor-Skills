@@ -6,11 +6,12 @@
     <title>Document</title>
     <link rel="stylesheet" href="test.css" />
   </head>
-  <body onload="completionOrderTimer()">
+  <body>
     <div id="intro">
+      <button onclick="startDeviceOrientation()" id="startbutton">START</button>
       <h2>
-        Find den rigtige rækkefølge. <br />Hvis du rammer et rødt felt, skal du
-        starte forfra.
+        Tryk START på din telefon for at komme igang.<br />
+        Prøv styringen af og forsøget vil starte når du er klar
       </h2>
     </div>
 
@@ -22,13 +23,10 @@
       <div id="boxsyd"></div>
     </div>
 
-    <div id="collision"></div>
-    <br />
-    <a href="index.html">Gå tilbage</a>
-    <a href="countdown.html">Gå til næste prøve</a>
+    <a href="findOrder.html">Gå til testen</a>
   </body>
 
   <script src="mqttws31.js"></script>
-  <script src="moja_mqtt2020.js"></script>
+  <script src="mqtttest.js"></script>
   <script src="Orientation.js"></script>
 </html>

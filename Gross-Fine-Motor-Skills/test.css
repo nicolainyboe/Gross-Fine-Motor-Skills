@@ -2,6 +2,39 @@ body {
   font-family: "Franklin Gothic Medium", "Arial Wide", Arial, sans-serif;
 }
 
+#nameinput {
+  position: relative;
+  width: 300px;
+  left: 650px;
+  top: 300px;
+}
+input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #3cbc8d;
+  color: white;
+  font-size: 30px;
+}
+
+#introSubmit {
+  position: relative;
+  left: 600px;
+  top: 280px;
+}
+
+#buttonSubmit {
+  position: relative;
+  left: 320px;
+  width: 80px;
+  height: 50px;
+  background-color: #3cbc8d;
+  bottom: 62px;
+  font-size: 15px;
+}
+
 #garden {
   position: relative;
   float: right;
@@ -78,6 +111,17 @@ a:hover {
   z-index: 1;
 }
 
+#ballplacement {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  background: #3cbc8d;
+  border-radius: 100%;
+  z-index: 1;
+}
+
 #boxvest {
   position: absolute;
   border-radius: 3px;
@@ -132,6 +176,7 @@ span {
   font-size: 56px;
   text-align: center;
   display: block;
+  left: 10px;
 
   margin: auto;
   width: 50%;
@@ -140,7 +185,7 @@ span {
 }
 #text {
   position: relative;
-  top: 300px;
+  top: 280px;
   font-size: 30px;
   text-align: center;
   display: block;
@@ -149,4 +194,16 @@ span {
   width: 50%;
 
   padding: 10px;
+}
+
+#results {
+  position: relative;
+  top: 10px;
+  color: #3cbc8d;
+}
+
+#testresultater {
+  position: relative;
+  padding: 20px;
+  top: 200px;
 }
