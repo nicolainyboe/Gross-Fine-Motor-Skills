@@ -55,10 +55,10 @@ function receiveMessage(message) {
 
   if (
     //VEST
-    topMeasure >= 250 &&
-    topMeasure <= 430 &&
-    leftMeasure >= 60 &&
-    leftMeasure <= 180
+    topMeasure >= rect1.y &&
+    topMeasure <= rect1.y + rect1.height &&
+    leftMeasure >= rect1.x &&
+    leftMeasure <= rect1.x + rect1.width
   ) {
     boxnum = 1;
     counterFunction();
@@ -66,10 +66,10 @@ function receiveMessage(message) {
     ifNotRightFunction(1);
   } else if (
     //NORD
-    topMeasure >= 40 &&
-    topMeasure <= 140 &&
-    leftMeasure >= 390 &&
-    leftMeasure <= 590
+    topMeasure >= rect2.y &&
+    topMeasure <= rect2.y + rect2.height &&
+    leftMeasure >= rect2.x &&
+    leftMeasure <= rect2.x + rect2.width
   ) {
     boxnum = 2;
     counterFunction();
@@ -77,10 +77,10 @@ function receiveMessage(message) {
     ifNotRightFunction(2);
   } else if (
     //ØST
-    topMeasure >= 250 &&
-    topMeasure <= 430 &&
-    leftMeasure >= 780 &&
-    leftMeasure <= 900
+    topMeasure >= rect3.y &&
+    topMeasure <= rect3.y + rect3.height &&
+    leftMeasure >= rect3.x &&
+    leftMeasure <= rect3.x + rect3.width
   ) {
     boxnum = 3;
     counterFunction();
@@ -88,10 +88,10 @@ function receiveMessage(message) {
     ifNotRightFunction(3);
   } else if (
     //SYD
-    topMeasure >= 550 &&
-    topMeasure <= 650 &&
-    leftMeasure >= 390 &&
-    leftMeasure <= 590
+    topMeasure >= rect4.y &&
+    topMeasure <= rect4.y + rect4.height &&
+    leftMeasure >= rect4.x &&
+    leftMeasure <= rect4.x + rect4.width
   ) {
     boxnum = 4;
     counterFunction();

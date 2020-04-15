@@ -8,7 +8,7 @@ var dinsekvens = document.getElementById("dinsekvens");
 var forkerte = document.getElementById("forkerte");
 
 function exportData() {
-  var name = localStorage.getItem("Testperson_Name");
+  var name = localStorage.getItem("Testperson_Name"); //csv as a string
   var finalTime = localStorage.getItem("FinalTime");
   var orderTime = localStorage.getItem("TidGetOrder");
   var sequence = localStorage.getItem("TheSequenceIs");
@@ -56,7 +56,7 @@ function exportData() {
   console.log(blob);
 
   var url = URL.createObjectURL(blob);
-  var a = document.querySelector("#results");
+  var a = document.querySelector("#results"); // id of the <a> element to render the download link
   a.href = url;
   a.download = name + " file.csv";
 }
