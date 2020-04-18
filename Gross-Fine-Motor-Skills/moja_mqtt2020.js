@@ -150,12 +150,12 @@ function ifRightSequence(e) {
 
 let wrongs = 0;
 function ifNotRightFunction(e) {
-  for (i = 0; i <= sequence.length; i++) {
+  for (i = 0; i < sequence.length; i++) {
     if (e != sequence[count]) {
       console.log("Nope");
       count = -1;
       wrongFunction();
-      if (count + 1 <= sequence.length) {
+      if (count <= sequence.length) {
         document.getElementById("boxvest").style.backgroundColor = "red";
         document.getElementById("boxnord").style.backgroundColor = "red";
         document.getElementById("boxoest").style.backgroundColor = "red";
