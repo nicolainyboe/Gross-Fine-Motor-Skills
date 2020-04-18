@@ -137,15 +137,6 @@ function ifRightSequence(e) {
       }
     }
   }
-
-  // Need to make timeout before function run
-  if (count + 1 >= sequence.length) {
-    setTimeout(500);
-
-    window.location.href = "countdown.html";
-
-    console.log("nu vil jeg videre");
-  }
 }
 
 let wrongs = 0;
@@ -155,14 +146,28 @@ function ifNotRightFunction(e) {
       console.log("Nope");
       count = -1;
       wrongFunction();
-      if (count <= sequence.length) {
+      if (count + 1 <= sequence.length) {
         document.getElementById("boxvest").style.backgroundColor = "red";
         document.getElementById("boxnord").style.backgroundColor = "red";
         document.getElementById("boxoest").style.backgroundColor = "red";
         document.getElementById("boxsyd").style.backgroundColor = "red";
+      } else {
+        document.getElementById("boxvest").style.backgroundColor = "green";
+        document.getElementById("boxnord").style.backgroundColor = "green";
+        document.getElementById("boxoest").style.backgroundColor = "green";
+        document.getElementById("boxsyd").style.backgroundColor = "green";
       }
     }
   }
+}
+
+// Need to make timeout before function run
+if (count + 1 >= sequence.length) {
+  setTimeout(500);
+
+  window.location.href = "countdown.html";
+
+  console.log("nu vil jeg videre");
 }
 
 var wrongFunction = function () {
