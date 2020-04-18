@@ -141,6 +141,10 @@ function ifRightSequence(e) {
   // Need to make timeout before function run
   if (count + 1 >= sequence.length) {
     setTimeout(500);
+    document.getElementById("boxvest").style.backgroundColor = "green";
+    document.getElementById("boxnord").style.backgroundColor = "green";
+    document.getElementById("boxoest").style.backgroundColor = "green";
+    document.getElementById("boxsyd").style.backgroundColor = "green";
     window.location.href = "countdown.html";
 
     console.log("nu vil jeg videre");
