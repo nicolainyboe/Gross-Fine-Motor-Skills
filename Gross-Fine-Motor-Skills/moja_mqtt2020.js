@@ -135,6 +135,13 @@ function ifRightSequence(e) {
           "Antal rigtige felter = " + (count + 1) + "/8";
         document.getElementById("boxsyd").style.backgroundColor = "green";
       }
+      if (count + 1 == sequence.length) {
+        setTimeout(500);
+
+        window.location.href = "countdown.html";
+
+        console.log("nu vil jeg videre");
+      }
     }
   }
 }
