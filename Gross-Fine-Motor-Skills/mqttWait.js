@@ -50,7 +50,7 @@ function receiveMessage(message) {
   //Farv boksene
 }
 let count = -1;
-let sequence = [2, 4, 2, 3, 1, 2, 1];
+let sequence = [2, 4, 2, 3, 1, 2, 1, 3];
 let boxnum;
 
 function conLost() {

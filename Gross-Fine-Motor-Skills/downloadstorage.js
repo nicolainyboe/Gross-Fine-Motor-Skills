@@ -34,7 +34,8 @@ function exportData() {
     " sekunder på at finde den <b>rigtige</b> rækkefølge";
 
   timeSpent2.innerHTML =
-    finalTime + " sekunder på at <b>gengive</b> den rigtige rækkefølge";
+    finalTime +
+    " sekunder på at <b>gengive</b> hvad du troede var den rigtige rækkefølge";
   fejl.innerHTML =
     "Du brugte " +
     wrongs +
@@ -56,7 +57,7 @@ function exportData() {
   console.log(blob);
 
   var url = URL.createObjectURL(blob);
-  var a = document.querySelector("#results"); // id of the <a> element to render the download link
+  var a = document.querySelector("#results");
   a.href = url;
   a.download = name + " file.csv";
 }
