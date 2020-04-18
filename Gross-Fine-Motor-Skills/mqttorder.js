@@ -161,7 +161,7 @@ var counterFunction = function () {
   }
   count++;
   counterFunction.done = true;
-  if (order.length < sequence.length) {
+  if (order.length < sequence.length + 1) {
     localStorage.setItem("WhatYouThinkIsTheOrder", JSON.stringify(order));
   }
 };
