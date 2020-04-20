@@ -38,6 +38,7 @@ input[type="text"] {
 #garden {
   position: relative;
   float: right;
+  /* margin: auto; */
   width: 1000px;
   height: 750px;
   border: 5px solid rgb(146, 196, 238);
@@ -65,15 +66,14 @@ button {
   float: left;
   margin: 10px;
   /* font-family: "Franklin Gothic Medium", "Arial Wide", Arial, sans-serif; */
-  width: 350px;
+  width: 300px;
 }
 
-#intro h2 {
-  padding: 10px;
+#intro a {
+  font-weight: lighter;
 }
 
 #collision {
-  margin: 20px;
   padding-bottom: 50px;
   font-size: 20px;
   /* font-family: "Franklin Gothic Medium", "Arial Wide", Arial, sans-serif; */
@@ -81,7 +81,6 @@ button {
 }
 
 a {
-  margin-left: 20px;
   font-size: 20px;
 }
 a:link {
@@ -206,4 +205,6 @@ span {
   position: relative;
   padding: 20px;
   top: 200px;
+  font-size: 20px;
+  line-height: 25px;
 }

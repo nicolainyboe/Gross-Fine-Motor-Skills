@@ -59,7 +59,7 @@ function receiveMessage(message) {
     leftMeasure >= rect1.x &&
     leftMeasure <= rect1.x + rect1.width
   ) {
-    document.getElementById("boxvest").style.backgroundColor = "lightblue";
+    document.getElementById("boxvest").style.borderWidth = "5px";
   } else if (
     //NORD
     topMeasure >= rect2.y &&
@@ -67,7 +67,7 @@ function receiveMessage(message) {
     leftMeasure >= rect2.x &&
     leftMeasure <= rect2.x + rect2.width
   ) {
-    document.getElementById("boxnord").style.backgroundColor = "lightblue";
+    document.getElementById("boxnord").style.borderWidth = "5px";
   } else if (
     //ØST
     topMeasure >= rect3.y &&
@@ -75,7 +75,7 @@ function receiveMessage(message) {
     leftMeasure >= rect3.x &&
     leftMeasure <= rect3.x + rect3.width
   ) {
-    document.getElementById("boxoest").style.backgroundColor = "lightblue";
+    document.getElementById("boxoest").style.borderWidth = "5px";
   } else if (
     //SYD
     topMeasure >= rect4.y &&
@@ -83,12 +83,19 @@ function receiveMessage(message) {
     leftMeasure >= rect4.x &&
     leftMeasure <= rect4.x + rect4.width
   ) {
-    document.getElementById("boxsyd").style.backgroundColor = "lightblue";
+    document.getElementById("boxsyd").style.borderWidth = "5px";
   } else {
     document.getElementById("boxvest").style.backgroundColor = "white";
     document.getElementById("boxnord").style.backgroundColor = "white";
     document.getElementById("boxoest").style.backgroundColor = "white";
     document.getElementById("boxsyd").style.backgroundColor = "white";
+
+    //border
+    document.getElementById("boxvest").style.borderWidth = "2px";
+    document.getElementById("boxnord").style.borderWidth = "2px";
+    document.getElementById("boxoest").style.borderWidth = "2px";
+    document.getElementById("boxsyd").style.borderWidth = "2px";
+
     counterFunction.done = false;
   }
 }

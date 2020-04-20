@@ -27,29 +27,29 @@ function exportData() {
     }
   }
 
-  nameInput.innerHTML = "Hej " + name;
+  nameInput.innerHTML = "Hej " + name + "</br >";
+
   timeSpent.innerHTML =
     "Du brugte " +
     orderTime +
-    " sekunder på at finde den <b>rigtige</b> rækkefølge";
+    " sekunder på at finde den <b>rigtige</b> rækkefølge.";
 
   timeSpent2.innerHTML =
     finalTime +
-    " sekunder på at <b>gengive</b> hvad du troede var den rigtige rækkefølge";
+    " sekunder på at <b>gengive</b> hvad du troede var den rigtige rækkefølge.";
   fejl.innerHTML =
     "Du brugte " +
     wrongs +
-    " forsøg, på at <b>finde</b> den rigtige rækkefølge";
-
-  sekvens.innerHTML =
-    "Sekvensen var " +
-    checkSequence.toString() +
-    " og dit bud var " +
-    yourSequence.toString();
+    " forsøg, på at <b>finde</b> den rigtige rækkefølge.";
+  // sekvens.innerHTML =
+  //   "Sekvensen var " +
+  //   checkSequence.toString() +
+  //   " og dit bud var " +
+  //   yourSequence.toString();
   data.push(name, orderTime, sequence, whatyouthink, wrongs, finalTime);
 
   forkerte.innerHTML =
-    "Det vil sige du havde " + " <b>" + notRight + " </b>" + "  forkerte";
+    " Du havde " + " <b>" + notRight + " </b>" + "  forkert(e).";
 
   var blob = new Blob([data], {
     type: "text/csv",

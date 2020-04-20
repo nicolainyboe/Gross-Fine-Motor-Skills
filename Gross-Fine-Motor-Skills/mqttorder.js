@@ -110,10 +110,17 @@ function receiveMessage(message) {
     document.getElementById("boxnord").style.backgroundColor = "white";
     document.getElementById("boxoest").style.backgroundColor = "white";
     document.getElementById("boxsyd").style.backgroundColor = "white";
+
+    //Border
+    document.getElementById("boxvest").style.borderWidth = "2px";
+    document.getElementById("boxnord").style.borderWidth = "2px";
+    document.getElementById("boxoest").style.borderWidth = "2px";
+    document.getElementById("boxsyd").style.borderWidth = "2px";
     counterFunction.done = false;
   }
 }
 let count = 0;
+
 let sequence = [2, 4, 2, 3, 1, 2, 1, 3];
 let boxnum;
 
@@ -141,23 +148,34 @@ var counterFunction = function () {
   if (boxnum == 1) {
     document.getElementById("collision").innerHTML =
       "Antal ramte felter = " + (count + 1) + "/8";
-    document.getElementById("boxvest").style.backgroundColor = "yellow";
+    //document.getElementById("boxvest").style.backgroundColor = "yellow";
+    document.getElementById("boxvest").style.borderWidth = "5px";
     order.push(1);
   } else if (boxnum == 2) {
     document.getElementById("collision").innerHTML =
       "Antal ramte felter = " + (count + 1) + "/8";
-    document.getElementById("boxnord").style.backgroundColor = "yellow";
+    //document.getElementById("boxnord").style.backgroundColor = "yellow";
+    document.getElementById("boxnord").style.borderWidth = "5px";
     order.push(2);
   } else if (boxnum == 3) {
     document.getElementById("collision").innerHTML =
       "Antal ramte felter = " + (count + 1) + "/8";
-    document.getElementById("boxoest").style.backgroundColor = "yellow";
+    //document.getElementById("boxoest").style.backgroundColor = "yellow";
+    document.getElementById("boxoest").style.borderWidth = "5px";
     order.push(3);
   } else if (boxnum == 4) {
     document.getElementById("collision").innerHTML =
       "Antal ramte felter = " + (count + 1) + "/8";
-    document.getElementById("boxsyd").style.backgroundColor = "yellow";
+    //document.getElementById("boxsyd").style.backgroundColor = "yellow";
+    document.getElementById("boxsyd").style.borderWidth = "5px";
     order.push(4);
+  }
+  if (count + 1 == sequence.length) {
+    setTimeout(500);
+
+    window.location.href = "end.html";
+
+    console.log("nu vil jeg videre");
   }
   count++;
   counterFunction.done = true;
