@@ -208,3 +208,11 @@ span {
   font-size: 20px;
   line-height: 25px;
 }
+
+#video {
+  position: absolute;
+  left: 320px;
+  top: 150px;
+
+  width: 1000px;
+}
