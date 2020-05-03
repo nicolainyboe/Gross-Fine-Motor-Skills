@@ -109,7 +109,7 @@ function receiveMessage(message) {
   }
 }
 let count = -1;
-let sequence = [3, 4, 2, 4, 1, 2, 3, 4];
+let sequence = [4, 1, 3, 1, 3, 4, 2, 4];
 let boxnum;
 
 document.getElementById("collision").innerHTML =
