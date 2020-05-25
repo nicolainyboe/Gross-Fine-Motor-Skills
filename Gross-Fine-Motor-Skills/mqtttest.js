@@ -1,5 +1,4 @@
 // SETUP MQTT ------------------------------------------
-
 const broker = "influx.itu.dk";
 const port = 9002;
 const secured = true;

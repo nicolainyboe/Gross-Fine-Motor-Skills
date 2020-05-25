@@ -148,25 +148,21 @@ var counterFunction = function () {
   if (boxnum == 1) {
     document.getElementById("collision").innerHTML =
       "Antal ramte felter = " + (count + 1) + "/8";
-    //document.getElementById("boxvest").style.backgroundColor = "yellow";
     document.getElementById("boxvest").style.borderWidth = "5px";
     order.push(1);
   } else if (boxnum == 2) {
     document.getElementById("collision").innerHTML =
       "Antal ramte felter = " + (count + 1) + "/8";
-    //document.getElementById("boxnord").style.backgroundColor = "yellow";
     document.getElementById("boxnord").style.borderWidth = "5px";
     order.push(2);
   } else if (boxnum == 3) {
     document.getElementById("collision").innerHTML =
       "Antal ramte felter = " + (count + 1) + "/8";
-    //document.getElementById("boxoest").style.backgroundColor = "yellow";
     document.getElementById("boxoest").style.borderWidth = "5px";
     order.push(3);
   } else if (boxnum == 4) {
     document.getElementById("collision").innerHTML =
       "Antal ramte felter = " + (count + 1) + "/8";
-    //document.getElementById("boxsyd").style.backgroundColor = "yellow";
     document.getElementById("boxsyd").style.borderWidth = "5px";
     order.push(4);
   }

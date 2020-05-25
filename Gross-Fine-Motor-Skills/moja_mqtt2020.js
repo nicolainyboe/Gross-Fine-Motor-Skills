@@ -145,7 +145,6 @@ function ifRightSequence(e) {
     }
   }
 }
-
 let wrongs = 0;
 function ifNotRightFunction(e) {
   for (i = 0; i < sequence.length; i++) {
