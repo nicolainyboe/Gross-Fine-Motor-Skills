@@ -111,7 +111,6 @@ function receiveMessage(message) {
 let count = -1;
 let sequence = [4, 1, 3, 1, 3, 4, 2, 4];
 let boxnum;
-
 document.getElementById("collision").innerHTML =
   "Antal rigtige felter = " + (count + 1) + "/8";
 function ifRightSequence(e) {
@@ -137,9 +136,7 @@ function ifRightSequence(e) {
       }
       if (count + 1 == sequence.length) {
         setTimeout(500);
-
         window.location.href = "countdown.html";
-
         console.log("nu vil jeg videre");
       }
     }
