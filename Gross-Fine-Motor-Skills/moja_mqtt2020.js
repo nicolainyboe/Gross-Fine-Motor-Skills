@@ -42,8 +42,6 @@ function receiveMessage(message) {
 
   let receivedMessage = mUnpack.content;
 
-  //do stuff with the message
-
   ball.style.left = (maxX * receivedMessage.sendX) / 180 - 10 + "px";
   ball.style.top = (maxY * receivedMessage.sendY) / 180 - 10 + "px";
 
